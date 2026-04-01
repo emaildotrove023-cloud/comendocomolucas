@@ -29,21 +29,34 @@
         header {
             background-color: var(--cor-card);
             text-align: center;
-            padding: 5rem 1rem 3rem 1rem;
+            padding: 4rem 1rem 3rem 1rem;
             border-bottom: 5px solid var(--cor-principal);
             box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-            background-image: url('https://cdn.pixabay.com/photo/2021/08/11/17/43/minas-gerais-6539115_1280.png');
-            background-size: cover;
-            background-position: center;
             position: relative;
+            /* Header limpo, sem imagem de fundo pesada */
+        }
+
+        /* Ilustrações de Linha Clean no Header (Bronze Sutil) */
+        header::before, header::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 80px;
+            height: 80px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.15; /* Sutil d+ */
+        }
+
+        header::before {
+            left: 10%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="none" stroke="%23d35400" stroke-width="2" d="M10,80 Q30,40 50,80 M40,80 Q60,30 80,80 M70,80 Q85,55 95,80"/></svg>'); /* Montanhas Minimalistas */
         }
 
         header::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-color: rgba(255, 255, 255, 0.7);
-            z-index: 1;
+            right: 10%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="none" stroke="%23d35400" stroke-width="2" d="M50,10 L50,90 M30,30 L70,30 M30,50 L70,50 M30,70 L70,70 M40,10 A10,10 0 0,1 60,10"/></svg>'); /* Igreja Barroca Minimalista */
         }
 
         header h1 {
@@ -54,7 +67,7 @@
             font-weight: 800;
             position: relative;
             z-index: 2;
-            text-shadow: 2px 2px 0px rgba(74, 49, 33, 0.2);
+            text-shadow: 2px 2px 0px rgba(74, 49, 33, 0.1);
         }
 
         header p {
@@ -115,10 +128,11 @@
             gap: 2rem;
         }
 
+        /* Ilustração de Linha Clean no Sobre Mim */
         .sobre-mim img {
-            width: 120px;
+            width: 100px;
             height: auto;
-            opacity: 0.8;
+            opacity: 0.2; /* Sutil d+ */
         }
 
         .sobre-mim h3 {
@@ -141,7 +155,7 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.03);
             margin-bottom: 3rem;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: block; /* Garante que o display inicial não quebre o layout */
+            display: block;
         }
 
         .post:hover {
@@ -195,7 +209,6 @@
             gap: 0.4rem;
         }
 
-        /* Correção para não cortar os comentários */
         details {
             margin-bottom: 1.5rem;
             width: 100%;
@@ -222,7 +235,6 @@
             background-color: var(--cor-hover);
         }
 
-        /* Garante que todo o texto apareça sem barra de rolagem interna ou cortes */
         .resenha-texto {
             margin-top: 1.3rem;
             line-height: 1.7;
@@ -271,6 +283,7 @@
             .nota-topo { font-size: 1.6rem; }
             .btn-filtro { font-size: 0.95rem; padding: 0.5rem 1.1rem; }
             .sobre-mim { flex-direction: column; text-align: center; }
+            header::before, header::after { display: none; } /* Esconde ícones no celular */
         }
     </style>
 </head>
@@ -293,7 +306,7 @@
     <div class="container">
         
         <section class="sobre-mim">
-            <img src="https://cdn.pixabay.com/photo/2014/04/03/10/32/stove-310860_1280.png" alt="Fogão de Lenha Mineiro">
+            <img src="data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="none" stroke="%234a3121" stroke-width="2" d="M20,40 L80,40 M20,40 A30,30 0 0,0 80,40 M50,10 L50,40 M40,20 L60,20"/></svg>" alt="Panela de Ferro Clean">
             <div>
                 <h3>Quem avisa, amigo é, uai!</h3>
                 <p>Seja bem-vindo. Eu sou o Luquinhas, contribuidor do Google Maps e apaixonado por comida. Cansei de gourmetização e resenha comprada. Aqui você vai encontrar papo reto sobre onde vale a pena gastar o seu dinheiro (e o seu estômago).</p>
@@ -637,218 +650,4 @@
                 <details>
                     <summary>Dar uma espiada na resenha completa</summary>
                     <div class="resenha-texto">
-                        Bem, me indicaram o local e resolvi ir no ambiente físico do estabelecimento. Não gostei da proposta da casa da qual o cliente tem que já pagar o produto escolhido antes de qualquer coisa e ir no caixa. Aí, quando estiver pronto ir novamente e pegar no caixa. Eu gosto de praticidade, comodidade e conforto, não quero ir num lugar e ter q ficar levantando toda hora, pra pegar as coisas, mas enfim. A bebida vc pega em outro lugar e tem q ficar ir buscando tbm... No dia que fui a moça falou q não tinha caipirinha, mas vi cachaça e limão no balcão, senti meio q uma preguiça dela ou não querer fazer o drink, mas... enfim de novo... A casa oferece pizzas, hambúrgueres, porções pequenas e milk shakes... Minha esposa pegou um milk shake de paçoca e achou delicioso... Sobre a pizza, achamos bem mais ou menos... Massa estranha, meio borrachuda e a mexicana que pedimos o doritos estava murcho e duro... O ponto alto da noite é o atendimento de todos os funcionários, que foi nota mil e o ambiente que é muito bonito, despojado e bem decorado, muito lindo mesmo! Provavelmente voltaremos no local pra experimentar o hambúrguer, pois tudo merece uma segunda chance, mas a primeira visita não foi tão especial assim...
-                    </div>
-                </details>
-
-                <div class="nota-experiencia">
-                    <span>💡</span>
-                    <p>Avaliação do Luquinhas: Ambiente lindo e atendimento ótimo, mas logística cansativa e pizza fraca.</p>
-                </div>
-            </article>
-
-            <article class="post" data-nota="1.0" data-data="2023-04-01">
-                <div class="post-header">
-                    <span class="post-categoria cat-perigo">🌶️ Furada, sô! (<7)</span>
-                    <span class="nota">1.0 / 10</span>
-                </div>
-                <h2>Balbúrdia Cervejeira Itajaí</h2>
-                <div class="post-meta">📍 R. Lauro Muller, 1267 | 📅 3 anos atrás</div>
-                
-                <details>
-                    <summary>Dar uma espiada na resenha completa</summary>
-                    <div class="resenha-texto">
-                        Eu sinceramente não entendi a proposta do local... Ao chegarmos, antes mesmo de sentar na mesa já fomos orientados pelo garçom que era necessário ir ao caixa e fazer um cartão. Já fiquei bolado, mas tudo bem, fui lá. Após uma fila interminável, a moça do caixa pediu meus dados e fiz o cartão e pela minha total surpresa ela me disse era necessário pagar antes. Sim! Não é brincadeira minha, vc tem que fazer a conta certinha do que vc quer pedir e já pagar de antemão. Achei graça, mas como minha esposa estava com fome, acabamos por colocar uma "carga" no cartão. Quando eu fui sentar, o garçom voltou e pedi um chopp. Ele me disse q era necessário ir na torneira e pegar o chopp. Eu já tava super bolado e percebi que se eu quisesse um drink ou outra bebida qualquer era necessário ir em outro stand... Quase perguntei se estavam precisando de garçons na casa, porque fácil assim até eu quero... Quando vou em um restaurante, bar, pub ou qualquer outro estabelecimento que seja, eu quero praticidade e conforto e não estar me levantando toda hora pra pedir e pegar as coisas.... Ai fui na cozinha, pois minha esposa queria experimentar a fraldinha red deles e a linguiça de cordeiro e qual a nova surpresa??? Não tinha fraldinha e nem linguiça no dia! aheusheuhuea... E percebi outro fato, no horário que fui, não havia porção individual de carne e só pra dupla, ou seja te obrigam a comer o que eles querem... Se a pessoa quiser experimentar dois cortes por exemplo, terá que pagar dobrado... E outra eu não quero comer arroz, quero comer o que eu quiser... E outra excelente logística do lugar é o banheiro que fica há uns 400 quilômetros de distância do bar. É escuro e longe. Eu havia carregado $250 n cartão e infelizmente tive que pedir o estorno e ir embora... A moça pediu 5 dias pra fazer o pix, ao menos me pagaram... As únicas coisas boas é que tem várias opções de chopp e o garçom que nos atendeu era ao menos educado... Sai de lá totalmente frustrado...
-                    </div>
-                </details>
-
-                <div class="nota-experiencia">
-                    <span>💡</span>
-                    <p>Avaliação do Luquinhas: Muita função para pouca praticidade. Banheiro a kms de distância.</p>
-                </div>
-            </article>
-
-            <article class="post" data-nota="9.0" data-data="2023-04-01">
-                <div class="post-header">
-                    <span class="post-categoria cat-sucesso">🍲 Lamber os beiços (9+)</span>
-                    <span class="nota-topo">9.0 / 10</span>
-                </div>
-                <h2>La Notte Bar & Cozinha</h2>
-                <div class="post-meta">📍 Av. Arno Carlos Gracher, 363 | 📅 3 anos atrás</div>
-                
-                <details>
-                    <summary>Dar uma espiada na resenha completa</summary>
-                    <div class="resenha-texto">
-                        O lugar é sensacional! Excelente atendimento, desde a entrada até o pagamento... Ambiente com decoração primorosa, drinks magistrais e comida feita com qualidade total! Tudo perfeito. As únicas observações são em relação ao fato de restaurante ser em piso superior, não haver elevador ou rampa para cadeirantes e deficientes e os preços são um pouco elevados. Talvez que que seja pobre mesmo e esteja indo em um lugar que não seja pro meu bico, hehe... Mas nada que estrague a experiência! Recomendo!
-                    </div>
-                </details>
-
-                <div class="nota-experiencia">
-                    <span>💡</span>
-                    <p>Avaliação do Luquinhas: Uma experiência de gala, porém peca em acessibilidade.</p>
-                </div>
-            </article>
-
-            <article class="post" data-nota="10.0" data-data="2023-04-01">
-                <div class="post-header">
-                    <span class="post-categoria cat-sucesso">🍲 Lamber os beiços (9+)</span>
-                    <span class="nota-topo">10 / 10</span>
-                </div>
-                <h2>Jost Burger</h2>
-                <div class="post-meta">📍 R. João Bauer, 55 | 📅 3 anos atrás</div>
-                
-                <details>
-                    <summary>Dar uma espiada na resenha completa</summary>
-                    <div class="resenha-texto">
-                        Melhor hamburgueria da cidade! Batata frita parece a do Mac, cebola frita tbm é top! Caipirinha show, chopp geladoooo e qualquer hambúrguer é muito bom, pode pedir sem medo! Atendimento ótimo e o lugar é bem aconchegante, recomenda d!+
-                    </div>
-                </details>
-
-                <div class="nota-experiencia">
-                    <span>💡</span>
-                    <p>Avaliação do Luquinhas: A melhor de Brusque. Pode ir de olho fechado!</p>
-                </div>
-            </article>
-
-            <article class="post" data-nota="4.0" data-data="2023-04-01">
-                <div class="post-header">
-                    <span class="post-categoria cat-perigo">🌶️ Furada, sô! (<7)</span>
-                    <span class="nota-topo">4.0 / 10</span>
-                </div>
-                <h2>Tsurus</h2>
-                <div class="post-meta">📍 R. França, 8 | 📅 3 anos atrás</div>
-                
-                <details>
-                    <summary>Dar uma espiada na resenha completa</summary>
-                    <div class="resenha-texto">
-                        Não é isso tudo que falam... É caro só pra selecionar a galera mesmo... Peças limitadas, ambiente pequeno, estacionamento inexistente e bebidas de preço exorbitante... Só pra nata mesmo...
-                    </div>
-                </details>
-
-                <div class="nota-experiencia">
-                    <span>💡</span>
-                    <p>Avaliação do Luquinhas: Preço de grife para pouca entrega. Só para a "nata".</p>
-                </div>
-            </article>
-
-            <article class="post" data-nota="2.0" data-data="2023-04-01">
-                <div class="post-header">
-                    <span class="post-categoria cat-perigo">🌶️ Furada, sô! (<7)</span>
-                    <span class="nota-topo">2.0 / 10</span>
-                </div>
-                <h2>Nippon</h2>
-                <div class="post-meta">📍 R. Daniel Imhof, 550 | 📅 3 anos atrás</div>
-                
-                <details>
-                    <summary>Dar uma espiada na resenha completa</summary>
-                    <div class="resenha-texto">
-                        Os pratos são até gostosos, mas o atendimento deve ser o pior da cidade... Demora umas 4 horas pra chegar os pedidos e eles nunca vem do jeito que vc pediu, sempre pela metade... Você o refaz e vem errado novamente, isso até para a bebida... Não sei o problema deles com a música também, que sempre está extremamente alta, eu estava do lado da minha namorada e mesmo assim eu tinha que praticamente berrar para conversar com ela... Quer uma sugestão? Vai no kyuutai!
-                    </div>
-                </details>
-
-                <div class="nota-experiencia">
-                    <span>💡</span>
-                    <p>Avaliação do Luquinhas: Desorganização e som berrante. Fuja para o concorrente.</p>
-                </div>
-            </article>
-
-            <article class="post" data-nota="10.0" data-data="2023-04-01">
-                <div class="post-header">
-                    <span class="post-categoria cat-sucesso">🍲 Lamber os beiços (9+)</span>
-                    <span class="nota-topo">10 / 10</span>
-                </div>
-                <h2>MATRYOSHKA Sabores do Leste Europeu</h2>
-                <div class="post-meta">📍 R. Mal. Guilherme, 119 | 📅 3 anos atrás</div>
-                
-                <details>
-                    <summary>Dar uma espiada na resenha completa</summary>
-                    <div class="resenha-texto">
-                        Surpreendente experiência no centro de Florianópolis... Tudo perfeito, desde o atendimento do Ed, até os pratos e bebidas... Fui com minha namorada e pedimos uma espécie de capelete recheado de cogumelos, klotetas com purê e cogumelos que estavam divinos! De bebida, pedimos um chá não menos saboroso, agora a chave de ouro é a sobremesa Praça Vermelha que foi a melhor que já comemos na vida! A única ressalva é que o local é minúsculo, então chegue cedo! Recomenda!
-                    </div>
-                </details>
-
-                <div class="nota-experiencia">
-                    <span>💡</span>
-                    <p>Avaliação do Luquinhas: A sobremesa Praça Vermelha mudou vidas. Lugar minúsculo, mas incrível.</p>
-                </div>
-            </article>
-
-            <article class="post" data-nota="7.5" data-data="2023-04-01">
-                <div class="post-header">
-                    <span class="post-categoria cat-alerta">🧀 Dá pra comer (7-8)</span>
-                    <span class="nota-topo">7.5 / 10</span>
-                </div>
-                <h2>No Class</h2>
-                <div class="post-meta">📍 R. Victor Meirelles, 184 | 📅 3 anos atrás</div>
-                
-                <details>
-                    <summary>Dar uma espiada na resenha completa</summary>
-                    <div class="resenha-texto">
-                        Fui muito bem atendimento, desde a hostless, as atendentes até o caixa... Os drinks que pedimos estavam fantásticos! O local tem um toque bem intimista e hi-tech, muito bem decorado mesmo. Minha única ressalva são para as porções, que não são o forte da casa, os fortes são mesmo os drinks... As porções estavam ok, mas são bem pequenas, só pra dar uma forrada no estômago mesmo, além de caras... Fora isso, recomenda muito ir no local!
-                    </div>
-                </details>
-
-                <div class="nota-experiencia">
-                    <span>💡</span>
-                    <p>Avaliação do Luquinhas: Ótimos drinks e decoração futurista, mas as porções são minúsculas.</p>
-                </div>
-            </article>
-
-        </div>
-
-    </div>
-
-    <footer>
-        <p>&copy; 2026 Comendo com o Luquinhas. Feito com fome e muita sinceridade, uai.</p>
-    </footer>
-
-    <script>
-        function filtrar(tipo, botao) {
-            // Remove a classe ativo de todos os botões
-            document.querySelectorAll('.btn-filtro').forEach(b => b.classList.remove('ativo'));
-            // Adiciona a classe ativo no botão clicado
-            botao.classList.add('ativo');
-
-            const posts = document.querySelectorAll('.post');
-            
-            posts.forEach(post => {
-                // Pegando a nota do atributo data-nota
-                const nota = parseFloat(post.getAttribute('data-nota'));
-                
-                if (tipo === 'todos') {
-                    post.style.display = 'block';
-                } else if (tipo === 'alta' && nota >= 9.0) {
-                    post.style.display = 'block';
-                } else if (tipo === 'media' && nota >= 7.0 && nota < 9.0) {
-                    post.style.display = 'block';
-                } else if (tipo === 'baixa' && nota < 7.0) {
-                    post.style.display = 'block';
-                } else {
-                    post.style.display = 'none';
-                }
-            });
-        }
-
-        function ordenarRecentes(botao) {
-            document.querySelectorAll('.btn-filtro').forEach(b => b.classList.remove('ativo'));
-            botao.classList.add('ativo');
-
-            const container = document.getElementById('lista-posts');
-            const posts = Array.from(container.getElementsByClassName('post'));
-
-            posts.sort((a, b) => {
-                const dataA = new Date(a.getAttribute('data-data'));
-                const dataB = new Date(b.getAttribute('data-data'));
-                return dataB - dataA; 
-            });
-
-            container.innerHTML = '';
-            posts.forEach(post => {
-                post.style.display = 'block'; 
-                container.appendChild(post);
-            });
-        }
-    </script>
-
-</body>
-</html>
+                        Bem, me indicaram o local e resolvi ir no ambiente físico do estabelecimento. Não gostei da proposta da casa da qual o cliente tem que já pagar o produto escolhido antes de qualquer coisa e ir no caixa. Aí, quando estiver pronto ir novamente e pegar no caixa. Eu gosto de praticidade, comodidade e conforto, não quero ir num lugar e ter q ficar levantando toda hora, pra pegar as coisas, mas enfim. A bebida vc pega em outro lugar e tem q ficar ir buscando tbm... No dia que fui a moça falou q não tinha caipirinha, mas vi cachaça e limão no balcão, senti meio q uma preguiça dela ou não querer fazer o drink, mas... enfim
