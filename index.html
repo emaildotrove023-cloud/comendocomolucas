@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comendo com o Luquinhas - Críticas Sinceras</title>
+    <style>
+        :root {
+            --cor-principal: #ff4757;
+            --cor-secundaria: #2ed573;
+            --cor-texto: #2f3542;
+            --cor-fundo: #f1f2f6;
+            --cor-card: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+        }
+
+        header {
+            background-color: var(--cor-card);
+            text-align: center;
+            padding: 3rem 1rem;
+            border-bottom: 5px solid var(--cor-principal);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            color: var(--cor-principal);
+        }
+
+        header p {
+            margin: 0.5rem 0 0;
+            font-size: 1.2rem;
+            color: #747d8c;
+            font-style: italic;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .sobre-mim {
+            background: var(--cor-card);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+            border-left: 5px solid var(--cor-secundaria);
+        }
+
+        .post {
+            background: var(--cor-card);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+
+        .post-categoria {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .cat-sucesso { background-color: var(--cor-secundaria); }
+        .cat-alerta { background-color: #ffa502; }
+        .cat-perigo { background-color: var(--cor-principal); }
+
+        .post h2 {
+            margin: 1rem 0 0.5rem;
+            color: #2f3542;
+        }
+
+        .post-meta {
+            font-size: 0.9rem;
+            color: #a4b0be;
+            margin-bottom: 1rem;
+        }
+
+        .post p {
+            line-height: 1.6;
+        }
+
+        .nota {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-top: 1rem;
+            color: var(--cor-principal);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #747d8c;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Comendo com o Luquinhas</h1>
+        <p>A verdade nua, crua e bem temperada sobre a comida por aí.</p>
+    </header>
+
+    <div class="container">
+        
+        <section class="sobre-mim">
+            <h3>Quem avisa, amigo é!</h3>
+            <p>Seja bem-vindo. Eu sou o Luquinhas, contribuidor do Google Maps e apaixonado por comida. Cansei de gourmetização e resenha comprada. Aqui você vai encontrar papo reto sobre onde vale a pena gastar o seu dinheiro (e o seu estômago).</p>
+        </section>
+
+        <article class="post">
+            <span class="post-categoria cat-sucesso">De lamber os beiços</span>
+            <h2>O hambúrguer que me fez perder a postura</h2>
+            <div class="post-meta">Postado em 01 de Abril de 2026 • Local: Burger do Bairro</div>
+            <p>Fui sem muita expectativa e saí de lá querendo abraçar o chapeiro. O ponto da carne estava perfeito, o queijo derretendo sem ser aquela piscina de óleo e o pão brioche aguentou firme até a última mordida sem desmanchar. É o clássico bem feito que humilha muito lugar que cobra 70 reais num disco de carne.</p>
+            <div class="nota">Nota da experiência: 9.5/10 (Só não dou 10 porque a batata podia ser mais crocante).</div>
+        </article>
+
+        <article class="post">
+            <span class="post-categoria cat-perigo">Engolindo sapo</span>
+            <h2>O Risoto de vento do restaurante chique</h2>
+            <div class="post-meta">Postado em 28 de Março de 2026 • Local: Ristorante Caro Demais</div>
+            <p>Sabe aquele lugar com luz baixa, música instrumental e um prato que custa três dígitos? Pois é. Pedi um risoto de camarão que parecia uma sopa de arroz parboilizado. Contei exatamente três camarões (pequenos!) perdidos no meio do prato. O garçom foi super educado, mas a comida parecia que tinha sido feita com pressa e sem amor nenhum.</p>
+            <div class="nota">Nota da experiência: 3/10 (A água com gás estava boa).</div>
+        </article>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Comendo com o Luquinhas. Feito com fome e muita sinceridade.</p>
+    </footer>
+
+</body>
+</html>
