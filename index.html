@@ -144,6 +144,608 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.03);
             margin-bottom: 3rem;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: none; /* Controlado pelo JS */
+        }
+
+        .post.visivel {
+            display: block;
+        }
+
+        .post:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+        }
+
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.2rem;
+        }
+
+        .post-categoria {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.4rem 1.1rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .cat-sucesso { background-color: var(--cor-sucesso); }
+        .cat-alerta { background-color: var(--cor-alerta); color: var(--cor-texto); }
+        .cat-perigo { background-color: var(--cor-perigo); }
+
+        .nota-topo {
+            font-size: 1.8rem;
+            color: var(--cor-principal);
+            font-weight: 800;
+        }
+
+        .post h2 {
+            margin: 0.4rem 0;
+            color: var(--cor-principal);
+            font-size: 2rem;
+            letter-spacing: -1px;
+            font-weight: 700;
+        }
+
+        .post-meta {
+            font-size: 0.95rem;
+            color: #888;
+            margin-bottom: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        details {
+            margin-bottom: 1.5rem;
+            width: 100%;
+        }
+
+        summary {
+            background-color: var(--cor-secundaria);
+            color: var(--cor-texto);
+            padding: 0.7rem 1.4rem;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+            list-style: none;
+            font-size: 1rem;
+        }
+
+        summary:hover {
+            background-color: var(--cor-hover);
+        }
+
+        .resenha-texto {
+            margin-top: 1.3rem;
+            line-height: 1.7;
+            font-size: 1.1rem;
+            padding: 1.3rem;
+            background-color: #fffefb;
+            border-radius: 10px;
+            border: 1px solid #f2e6cf;
+        }
+
+        .nota-experiencia {
+            background-color: var(--cor-fundo);
+            padding: 1.3rem;
+            border-radius: 15px;
+            border: 3px solid var(--cor-secundaria);
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+        }
+
+        .nota-experiencia p {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin: 0;
+            color: var(--cor-principal);
+        }
+
+        .btn-container {
+            text-align: center;
+            margin: 2rem 0 4rem 0;
+        }
+
+        .btn-mostrar-mais {
+            background-color: var(--cor-card);
+            border: 2px solid var(--cor-principal);
+            color: var(--cor-principal);
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .btn-mostrar-mais:hover {
+            background-color: var(--cor-principal);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 1rem;
+            border-top: 2px solid var(--cor-secundaria);
+            color: #888;
+            font-size: 1rem;
+            background-color: #fff;
+        }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 2.8rem; }
+            header p { font-size: 1.2rem; }
+            .post h2 { font-size: 1.8rem; }
+            .post-header { flex-direction: column; align-items: flex-start; gap: 0.6rem; }
+            .sobre-mim { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Comendo com o Luquinhas, uai!</h1>
+        <p>A verdade nua, crua e bem temperada sobre o comer por aí.</p>
+    </header>
+
+    <div class="menu-filtros">
+        <span style="font-weight: bold; margin-right: 0.5rem; color: var(--cor-principal);">Uai, filtrar por:</span>
+        <button class="btn-filtro ativo" onclick="filtrar('todos', this)">Todos</button>
+        <button class="btn-filtro" onclick="filtrar('alta', this)">Nossinhora! (9+)</button>
+        <button class="btn-filtro" onclick="filtrar('media', this)">Bão Demais (7-8)</button>
+        <button class="btn-filtro" onclick="filtrar('baixa', this)">Furada, sô! (<7)</button>
+        <button class="btn-filtro" onclick="ordenarRecentes(this)">Mais Recentes</button>
+    </div>
+
+    <div class="container">
+        
+        <section class="sobre-mim">
+            <img src="https://images.unsplash.com/photo-1598901865241-76bc4696df0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Janela Mineira Tradicional">
+            <div>
+                <h3>Quem avisa, amigo é, uai!</h3>
+                <p>Seja bem-vindo. Eu sou o Luquinhas, contribuidor do Google Maps e apaixonado por comida. Cansei de gourmetização e resenha comprada. Aqui você vai encontrar papo reto sobre onde vale a pena gastar o seu dinheiro (e o seu estômago).</p>
+            </div>
+        </section>
+
+        <div id="lista-posts">
+
+            <article class="post" data-nota="8.5" data-data="2026-03-25">
+                <div class="post-header"><span class="post-categoria cat-alerta">🧀 Dá pra comer</span><span class="nota-topo">8.5 / 10</span></div>
+                <h2>Ital'in House - Brusque - Centro</h2>
+                <div class="post-meta">📍 R. Ver. Guilherme Niebuhr, 2 | 📅 1 semana atrás</div>
+                <details><summary>Dar uma espiada na resenha completa</summary><div class="resenha-texto">Fui surpreendido positivamente! Pedi um risoto e um talharim e ambas as porções são muito bem servidas...</div></details>
+                <div class="nota-experiencia"><span>💡</span><p>Avaliação do Luquinhas: Risoto e talharim valem d+, mas o doce deixou a desejar.</p></div>
+            </article>
+
+            <article class="post" data-nota="10.0" data-data="2026-03-01">
+                <div class="post-header"><span class="post-categoria cat-sucesso">🍲 Lamber os beiços</span><span class="nota-topo">10 / 10</span></div>
+                <h2>PIZZARIA LÁ BELLA</h2>
+                <div class="post-meta">📍 R. Florianópolis, 795 | 📅 1 mês atrás</div>
+                <details><summary>Dar uma espiada na resenha completa</summary><div class="resenha-texto">Confesso que fiz o pedido sem muito otimismo, mas fui surpreendido de maneira muito positiva...</div></details>
+                <div class="nota-experiencia"><span>💡</span><p>Avaliação do Luquinhas: Costela campeã! Atendimento nota 1000.</p></div>
+            </article>
+
+            <article class="post" data-nota="8.0" data-data="2026-02-01">
+                <div class="post-header"><span class="post-categoria cat-alerta">🧀 Dá pra comer</span><span class="nota-topo">8.0 / 10</span></div>
+                <h2>Boutique do Pão de Ló Brusque</h2>
+                <div class="post-meta">📍 R. Paes Leme, 122 | 📅 2 meses atrás</div>
+                <details><summary>Dar uma espiada na resenha completa</summary><div class="resenha-texto">Eu achei o local fantástico! A decoração foi muito bem feita. Tudo lindo, sofistisado e arrojado...</div></details>
+                <div class="nota-experiencia"><span>💡</span><p>Avaliação do Luquinhas: Ambiente lindo e atendimento ótimo, mas prepara o bolso para os bolos.</p></div>
+            </article>
+
+            <article class="post" data-nota="10.0" data-data="2026-01-01">
+                <div class="post-header"><span class="post-categoria cat-sucesso">🍲 Lamber os beiços</span><span class="nota-topo">10 / 10</span></div>
+                <h2>DOSS Local Pizza Shop</h2>
+                <div class="post-meta">📍 R. João Bauer, 245 | 📅 3 meses atrás</div>
+                <details><summary>Dar uma espiada na resenha completa</summary><div class="resenha-texto">É sem dúvidas uma das melhores casas gastronômicas de Brusque! Ambiente despojado...</div></details>
+                <div class="nota-experiencia"><span>💡</span><p>Avaliação do Luquinhas: Pizzas que são obras de arte. Comer com as mãos é show.</p></div>
+            </article>
+
+            <article class="post" data-nota="10.0" data-data="2026-01-01">
+                <div class="post-header"><span class="post-categoria cat-sucesso">🍲 Lamber os beiços</span><span class="nota-topo">10 / 10</span></div>
+                <h2>Praia da Vila Bar</h2>
+                <div class="post-meta">📍 Av. Manoel Florentino Machado | 📅 3 meses atrás</div>
+                <details><summary>Dar uma espiada na resenha completa</summary><div class="resenha-texto">O melhor bar de Imbituba! De frente pro marzão da Vila! Rústico, raiz, cosmopolitano!...</div></details>
+                <div class="nota-experiencia"><span>💡</span><p>Avaliação do Luquinhas: Um paraíso rústico com as melhores porções e drinks.</p></div>
+            </article>
+
+            <article class="post" data-nota="9.0" data-data="2025-12-01">
+                <div class="post-header"><span class="post-categoria cat-sucesso">🍲 Lamber os beiços</span><span class="nota-topo">9.0 / 10</span></div>
+                <h2>Pizza para você Brusque</h2>
+                <div class="post-meta">📍 R. São Leopoldo, 202 | 📅 4 meses atrás</div>
+                <details><summary>Dar uma espiada na resenha completa</summary><div class="resenha-texto">A pizzaria me supreendeu positivamente após eu ter lido tantos comentários negativos...</div></details>
+                <div class="nota-experiencia"><span>💡</span><p>Avaliação do Luquinhas: Por 30 reais, vale muito a pena. Massa fina e bem recheada.</p></div>
+            </article>
+
+            <article class="post" data-nota="10.0" data-data="2025-10-01">
+                <div class="post-header"><span class="post-categoria cat-sucesso">🍲 Lamber os beiços</span><span class="nota-topo">10 / 10</span></div>
+                <h2>DeepFourBlack Brusque OFICIAL</h2>
+                <div class="post-meta">📍 R. Benjamin Constant, 26 | 📅 6 meses atrás</div>
+                <details><summary>Dar uma espiada na resenha completa</summary><div class="resenha-texto">Sem dúvidas, um dos melhores estabelecimentos de Brusque... Ambiente bem descolado...</div></details>
+                <div class="nota-experiencia"><span>💡</span><p>Avaliação do Luquinhas: Bolinho de queijo gouda perfeito e sinuquinha de graça.</p></div>
+            </article>
+
+            <article class="post" data-nota="10.0" data-data="2025-09-01">
+                <div class="post-header"><span class="post-categoria cat-sucesso">🍲 Lamber os beiços</span><span class="nota-topo">10 / 10</span></div>
+                <h2>Café Chaminé Delícias do Amazonas</h2>
+                <div class="post-meta">📍 R. Afonso Pena, 56 | 📅 7 meses atrás</div>
+                <details><summary>Dar uma espiada na resenha completa</summary><div class="resenha-texto">Não sou manauara, mas amo experimentar comidas de outras regiões do país... Amei o lugar...</div></details>
+                <div class="nota-experiencia"><span>💡</span><p>Avaliação do Luquinhas: O tucumã foi uma ótima descoberta. Atendimento nota mil.</p></div>
+            </article>
+
+            <article class="post" data-nota="8.0" data-data="2025-01-05">
+                <div class="post-header"><span class="post-categoria cat-alerta">🧀 Dá pra comer</span><span class="nota-topo">8.0 / 10</span></div>
+                <h2>Upper Burger | Hamburgueria</h2>
+                <div class="post-meta">📍 R. Paes Leme, 85 | 📅 1 ano atrás</div>
+                <details><summary>Dar uma espiada na resenha completa</summary><div class="resenha-texto">Fui dia 05/01/25 e pedimos porções a lacarte. O ambiente é ok, nada d+...</div></details>
+                <div class="nota-experiencia"><span>💡</span><p>Avaliação do Luquinhas: Hambúrguer suculento, mas os preços das porções são salgados.</p></div>
+            </article>
+
+            <article class="post" data-nota="9.5" data-data="2025-04-01">
+                <div class="post-header"><span class="post-categoria cat-sucesso">🍲 Lamber os beiços</span><span class="nota-topo">9.5 / 10</span></div>
+                <h2>Alexandria Burger Brusque</h2>
+                <div class="post-meta">📍 R. João Bauer, 260 | 📅 1 ano atrás</div>
+                <details><summary>Dar uma espiada na resenha completa</summary><div class="resenha-texto">É sem dúvidas um dos melhores estabelecimentos de Brusque! Os hambúrgueres são deliciosos...</div></details>
+                <div class="nota-experiencia"><span>💡</span><p>Avaliação do Luquinhas: Hambúrguer fantástico. "El Patron" é o destaque.</p></div>
+            </article>
+
+            <article class="post" data-nota="7.5" data-data="2025-04-01">
+                <div class="post-header"><span class="post-categoria cat-alerta">🧀 Dá pra comer</span><span class="nota-topo">7.5 / 10</span></div>
+                <h2>Empório Zimbeer</h2>
+                <div class="post-meta">📍 R. Nereu Ramos, 916 | 📅 1 ano atrás</div>
+                <details><summary>Dar uma espiada na resenha completa</summary><div class="resenha-texto">Em viagem de férias por Imbituba, fomos nesse pub, que é sensacional!...</div></details>
+                <div class="nota-experiencia"><span>💡</span><p>Avaliação do Luquinhas: Excelente pub de férias, mas a taxa de couvert é exagerada.</p></div>
+            </article>
+
+            <article class="post" data-nota="3.0" data-data="2024-04-01">
+                <div class="post-header"><span class="post-categoria cat-perigo">🌶️ Furada, sô!</span><span class="nota-topo">3.0 / 10</span></div>
+                <h2>HOUSEBAR</h2>
+                <div class="post-meta">📍 R. Azambuja, 26 | 📅 2 anos atrás</div>
+                <details><summary>Dar uma espiada na resenha completa</summary><div class="resenha-texto">Fui numa quarta feira e a atendente me informou que havia uma promoção do buffet...</div></details>
+                <div class="nota-experiencia"><span>💡</span><p>Avaliação do Luquinhas: Muita apoteose de arroz. Só vale se estiver quebrado e faminto.</p></div>
+            </article>
+
+            <article class="post" data-nota="10.0" data-data="2024-04-01">
+                <div class="post-header"><span class="post-categoria cat-sucesso">🍲 Lamber os beiços</span><span class="nota-topo">10 / 10</span></div>
+                <h2>Restaurante Nayme Culinária Árabe Curitiba</h2>
+                <div class="post-meta">📍 R. Cel. Dulcídio, 572 | 📅 2 anos atrás</div>
+                <details><summary>Dar uma espiada na resenha completa</summary><div class="resenha-texto">Sou pobre financeiramente, mas de vez em quando, me aventuro em restaurantes chiques...</div></details>
+                <div class="nota-experiencia"><span>💡</span><p>Avaliação do Luquinhas: Aventura em restaurante chique que valeu cada centavo.</p></div>
+            </article>
+
+            <article class="post" data-nota="9.0" data-data="2024-04-01">
+                <div class="post-header"><span class="post-categoria cat-sucesso">🍲 Lamber os beiços</span><span class="nota-topo">9.0 / 10</span></div>
+                <h2>Camaleão Burgers</h2>
+                <div class="post-meta">📍 R. Dorval Luz, 267 | 📅 2 anos atrás</div>
+                <details><summary>Dar uma espiada na resenha completa</summary><div class="resenha-texto">Fui ontem com minha esposa e gostamos bastante. O hambúrguer é muito bom...</div></details>
+                <div class="nota-experiencia"><span>💡</span><p>Avaliação do Luquinhas: Hambúrguer bruto, sem frescura de garfo e faca. Excelente.</p></div>
+            </article>
+
+            <article class="post" data-nota="2.0" data-data="2023-04-01">
+                <div class="post-header"><span class="post-categoria cat-perigo">🌶️ Furada, sô!</span><span class="nota-topo">2.0 / 10</span></div>
+                <h2>Keep Rocking Pub</h2>
+                <div class="post-meta">📍 R. Hercílio Luz, 374 | 📅 3 anos atrás</div>
+                <details><summary>Dar uma espiada na resenha completa</summary><div class="resenha-texto">Um local, auto denominado pub, que não abre no fim de semana... Só em Brusque mesmo...</div></details>
+                <div class="nota-experiencia"><span>💡</span><p>Avaliação do Luquinhas: Ideia na contramão: um pub que fecha no final de semana.</p></div>
+            </article>
+
+            <article class="post" data-nota="5.0" data-data="2023-04-01">
+                <div class="post-header"><span class="post-categoria cat-perigo">🌶️ Furada, sô!</span><span class="nota-topo">5.0 / 10</span></div>
+                <h2>Hi Dogz Pizza Burger</h2>
+                <div class="post-meta">📍 R. Bulcão Viana, 126 | 📅 3 anos atrás</div>
+                <details><summary>Dar uma espiada na resenha completa</summary><div class="resenha-texto">Bem, me indicaram o local e resolvi ir no ambiente físico do estabelecimento...</div></details>
+                <div class="nota-experiencia"><span>💡</span><p>Avaliação do Luquinhas: Ambiente lindo e atendimento ótimo, mas logística cansativa e pizza fraca.</p></div>
+            </article>
+
+            <article class="post" data-nota="1.0" data-data="2023-04-01">
+                <div class="post-header"><span class="post-categoria cat-perigo">🌶️ Furada, sô!</span><span class="nota-topo">1.0 / 10</span></div>
+                <h2>Balbúrdia Cervejeira Itajaí</h2>
+                <div class="post-meta">📍 R. Lauro Muller, 1267 | 📅 3 anos atrás</div>
+                <details><summary>Dar uma espiada na resenha completa</summary><div class="resenha-texto">Eu sinceramente não entendi a proposta do local... Ao chegarmos, antes mesmo de sentar...</div></details>
+                <div class="nota-experiencia"><span>💡</span><p>Avaliação do Luquinhas: Muita função para pouca praticidade. Banheiro a kms de distância.</p></div>
+            </article>
+
+            <article class="post" data-nota="9.0" data-data="2023-04-01">
+                <div class="post-header"><span class="post-categoria cat-sucesso">🍲 Lamber os beiços</span><span class="nota-topo">9.0 / 10</span></div>
+                <h2>La Notte Bar & Cozinha</h2>
+                <div class="post-meta">📍 Av. Arno Carlos Gracher, 363 | 📅 3 anos atrás</div>
+                <details><summary>Dar uma espiada na resenha completa</summary><div class="resenha-texto">O lugar é sensacional! Excelente atendimento, desde a entrada até o pagamento...</div></details>
+                <div class="nota-experiencia"><span>💡</span><p>Avaliação do Luquinhas: Uma experiência de gala, porém peca em acessibilidade.</p></div>
+            </article>
+
+            <article class="post" data-nota="10.0" data-data="2023-04-01">
+                <div class="post-header"><span class="post-categoria cat-sucesso">🍲 Lamber os beiços</span><span class="nota-topo">10 / 10</span></div>
+                <h2>Jost Burger</h2>
+                <div class="post-meta">📍 R. João Bauer, 55 | 📅 3 anos atrás</div>
+                <details><summary>Dar uma espiada na resenha completa</summary><div class="resenha-texto">Melhor hamburgueria da cidade! Batata frita parece a do Mac, cebola frita tbm é top!...</div></details>
+                <div class="nota-experiencia"><span>💡</span><p>Avaliação do Luquinhas: A melhor de Brusque. Pode ir de olho fechado!</p></div>
+            </article>
+
+            <article class="post" data-nota="4.0" data-data="2023-04-01">
+                <div class="post-header"><span class="post-categoria cat-perigo">🌶️ Furada, sô!</span><span class="nota-topo">4.0 / 10</span></div>
+                <h2>Tsurus</h2>
+                <div class="post-meta">📍 R. França, 8 | 📅 3 anos atrás</div>
+                <details><summary>Dar uma espiada na resenha completa</summary><div class="resenha-texto">Não é isso tudo que falam... É caro só pra selecionar a galera mesmo...</div></details>
+                <div class="nota-experiencia"><span>💡</span><p>Avaliação do Luquinhas: Preço de grife para pouca entrega. Só para a "nata".</p></div>
+            </article>
+
+            <article class="post" data-nota="2.0" data-data="2023-04-01">
+                <div class="post-header"><span class="post-categoria cat-perigo">🌶️ Furada, sô!</span><span class="nota-topo">2.0 / 10</span></div>
+                <h2>Nippon</h2>
+                <div class="post-meta">📍 R. Daniel Imhof, 550 | 📅 3 anos atrás</div>
+                <details><summary>Dar uma espiada na resenha completa</summary><div class="resenha-texto">Os pratos são até gostosos, mas o atendimento deve ser o pior da cidade...</div></details>
+                <div class="nota-experiencia"><span>💡</span><p>Avaliação do Luquinhas: Desorganização e som berrante. Fuja para o concorrente.</p></div>
+            </article>
+
+            <article class="post" data-nota="10.0" data-data="2023-04-01">
+                <div class="post-header"><span class="post-categoria cat-sucesso">🍲 Lamber os beiços</span><span class="nota-topo">10 / 10</span></div>
+                <h2>MATRYOSHKA Sabores do Leste Europeu</h2>
+                <div class="post-meta">📍 R. Mal. Guilherme, 119 | 📅 3 anos atrás</div>
+                <details><summary>Dar uma espiada na resenha completa</summary><div class="resenha-texto">Surpreendente experiência no centro de Florianópolis... Tudo perfeito...</div></details>
+                <div class="nota-experiencia"><span>💡</span><p>Avaliação do Luquinhas: A sobremesa Praça Vermelha mudou vidas.</p></div>
+            </article>
+
+            <article class="post" data-nota="7.5" data-data="2023-04-01">
+                <div class="post-header"><span class="post-categoria cat-alerta">🧀 Dá pra comer</span><span class="nota-topo">7.5 / 10</span></div>
+                <h2>No Class</h2>
+                <div class="post-meta">📍 R. Victor Meirelles, 184 | 📅 3 anos atrás</div>
+                <details><summary>Dar uma espiada na resenha completa</summary><div class="resenha-texto">Fui muito bem atendimento, desde a hostless, as atendentes até o caixa...</div></details>
+                <div class="nota-experiencia"><span>💡</span><p>Avaliação do Luquinhas: Ótimos drinks, mas as porções são minúsculas.</p></div>
+            </article>
+
+        </div> <div class="btn-container">
+            <button id="btn-mostrar" class="btn-mostrar-mais" onclick="mostrarMais()">Mostrar Mais Críticas, uai!</button>
+        </div>
+
+    </div> <footer>
+        <p>&copy; 2026 Comendo com o Luquinhas. Feito com fome e muita sinceridade, uai.</p>
+    </footer>
+
+    <script>
+        let postsPorPagina = 5;
+        let postsExibidos = 0;
+        let postsFiltrados = [];
+
+        document.addEventListener("DOMContentLoaded", function() {
+            aplicarFiltroInicial();
+        });
+
+        function aplicarFiltroInicial() {
+            const todosPosts = Array.from(document.querySelectorAll('.post'));
+            postsFiltrados = todosPosts;
+            postsExibidos = 0;
+            atualizarVisualizacao();
+        }
+
+        function atualizarVisualizacao() {
+            const totalFiltrados = postsFiltrados.length;
+            
+            // Força todos os posts a sumirem primeiro
+            document.querySelectorAll('.post').forEach(p => p.classList.remove('visivel'));
+
+            // Define o novo limite a ser exibido
+            let limite = Math.min(postsExibidos + postsPorPagina, totalFiltrados);
+            postsExibidos = limite;
+
+            // Ativa a classe visível apenas nos posts que passam pelo filtro e paginação
+            for (let i = 0; i < postsExibidos; i++) {
+                postsFiltrados[i].classList.add('visivel');
+            }
+
+            // Esconde ou exibe o botão
+            const btn = document.getElementById('btn-mostrar');
+            if (postsExibidos >= totalFiltrados) {
+                btn.style.display = 'none';
+            } else {
+                btn.style.display = 'inline-block';
+            }
+        }
+
+        function mostrarMais() {
+            atualizarVisualizacao();
+        }
+
+        function filtrar(tipo, botao) {
+            document.querySelectorAll('.btn-filtro').forEach(b => b.classList.remove('ativo'));
+            botao.classList.add('ativo');
+
+            const todosPosts = Array.from(document.querySelectorAll('.post'));
+            
+            if (tipo === 'todos') {
+                postsFiltrados = todosPosts;
+            } else {
+                postsFiltrados = todosPosts.filter(post => {
+                    const nota = parseFloat(post.getAttribute('data-nota'));
+                    if (tipo === 'alta') return nota >= 9.0;
+                    if (tipo === 'media') return nota >= 7.0 && nota < 9.0;
+                    if (tipo === 'baixa') return nota < 7.0;
+                    return false;
+                });
+            }
+
+            postsExibidos = 0; // Reinicia a paginação no filtro
+            atualizarVisualizacao();
+        }
+
+        function ordenarRecentes(botao) {
+            document.querySelectorAll('.btn-filtro').forEach(b => b.classList.remove('ativo'));
+            botao.classList.add('ativo');
+
+            const container = document.getElementById('lista-posts');
+            
+            postsFiltrados.sort((a, b) => {
+                const dataA = new Date(a.getAttribute('data-data'));
+                const dataB = new Date(b.getAttribute('data-data'));
+                return dataB - dataA; 
+            });
+
+            postsFiltrados.forEach(post => container.appendChild(post));
+
+            postsExibidos = 0; // Reinicia a paginação na ordem
+            atualizarVisualizacao();
+        }
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comendo com o Luquinhas - Críticas Sinceras, uai!</title>
+    <style>
+        :root {
+            --cor-principal: #d35400; /* Cobre/Abóbora */
+            --cor-secundaria: #f3e5ab; /* Milho/Manteiga */
+            --cor-texto: #4a3121; /* Café escuro */
+            --cor-fundo: #faf8f5; /* Off-white linho */
+            --cor-card: #ffffff;
+            --cor-hover: #e0d0b8; 
+            --cor-sucesso: #27ae60; /* Verde horta */
+            --cor-alerta: #f1c40f; /* Amarelo queijo */
+            --cor-perigo: #c0392b; /* Vermelho pimenta */
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--cor-fundo);
+            background-image: url('https://www.transparenttextures.com/patterns/linen.png');
+            color: var(--cor-texto);
+        }
+
+        header {
+            background-color: var(--cor-card);
+            text-align: center;
+            padding: 6rem 1rem;
+            border-bottom: 5px solid var(--cor-principal);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            position: relative;
+            background-image: url('https://images.unsplash.com/photo-1620127553531-dfbc9342544c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(255, 255, 255, 0.88);
+            z-index: 1;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3.5rem;
+            color: var(--cor-principal);
+            letter-spacing: -1px;
+            font-weight: 800;
+            position: relative;
+            z-index: 2;
+            text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.8);
+        }
+
+        header p {
+            margin: 0.8rem 0 0;
+            font-size: 1.4rem;
+            color: #555;
+            font-style: italic;
+            position: relative;
+            z-index: 2;
+        }
+
+        .menu-filtros {
+            background-color: #fff;
+            padding: 1.2rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid var(--cor-secundaria);
+        }
+
+        .btn-filtro {
+            background-color: transparent;
+            border: 2px solid var(--cor-secundaria);
+            border-radius: 30px;
+            padding: 0.6rem 1.3rem;
+            margin: 0.3rem;
+            cursor: pointer;
+            font-weight: bold;
+            color: var(--cor-principal);
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .btn-filtro:hover, .btn-filtro.ativo {
+            background-color: var(--cor-principal);
+            color: white;
+            border-color: var(--cor-principal);
+            transform: scale(1.03);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .sobre-mim {
+            background: var(--cor-card);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            margin-bottom: 3rem;
+            border-left: 8px solid var(--cor-sucesso);
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .sobre-mim img {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .sobre-mim h3 {
+            color: var(--cor-principal);
+            margin-top: 0;
+            font-size: 2rem;
+            font-weight: 800;
+        }
+
+        .sobre-mim p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .post {
+            background: var(--cor-card);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            margin-bottom: 3rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: none; /* Escondido por padrão para o sistema de paginação */
         }
 
