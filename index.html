@@ -11,14 +11,14 @@
             --cor-texto: #333333;
             --cor-fundo: #faf8f5; /* Off-white */
             --cor-card: #ffffff;
-            --cor-hover: #e0d0b8; /* Queijo escuro */
+            --cor-hover: #e0d0b8; 
             --cor-sucesso: #a3b18a; /* Verde folha */
             --cor-alerta: #e9c46a; /* Amarelo ouro */
             --cor-perigo: #e76f51; /* Laranja queima */
         }
 
         body {
-            font-family: 'Georgia', serif; /* Toque clássico */
+            font-family: 'Georgia', serif;
             margin: 0;
             padding: 0;
             background-color: var(--cor-fundo);
@@ -46,7 +46,6 @@
             font-style: italic;
         }
 
-        /* Menu de Navegação e Filtros */
         .menu-filtros {
             background-color: #fff;
             padding: 1rem;
@@ -94,11 +93,6 @@
         .sobre-mim h3 {
             color: var(--cor-principal);
             margin-top: 0;
-        }
-
-        .sobre-mim p {
-            font-size: 1.1rem;
-            line-height: 1.7;
         }
 
         .post {
@@ -178,12 +172,10 @@
             font-size: 1rem;
         }
 
-        /* Responsividade */
         @media (max-width: 600px) {
             header h1 { font-size: 2.5rem; }
-            header p { font-size: 1.2rem; }
             .post h2 { font-size: 1.7rem; }
-            .btn-filtro { font-size: 0.9rem; padding: 0.5rem 1rem; }
+            .post-header { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
         }
     </style>
 </head>
@@ -207,7 +199,7 @@
         
         <section class="sobre-mim">
             <h3>Quem avisa, amigo é, uai!</h3>
-            <p>Seja bem-vindo. Eu sou o Luquinhas, contribuidor do Google Maps e apaixonado por comida. Cansei de gourmetização e resenha comprada. Aqui você vai encontrar papo reto sobre onde vale a pena gastar o seu dinheiro (e o seu estômago).</p>
+            <p>Seja bem-vindo. Eu sou o Luquinhas, contribuidor do Google Maps e apaixonado por comida. Cansei de gourmetização e resenha comprada. Aqui você vai encontrar papo resto sobre onde vale a pena gastar o seu dinheiro (e o seu estômago).</p>
         </section>
 
         <div id="lista-posts">
@@ -217,12 +209,10 @@
                     <span class="post-categoria cat-alerta">Dá pra comer (7-8)</span>
                     <span class="nota">8.5 / 10</span>
                 </div>
-                <h2>Ital'in House - Brusque</h2>
-                <div class="post-meta">Centro, Brusque - SC | 1 semana atrás</div>
-                <p>Fui surpreendido positivamente! Pedi um risoto e um talharim e ambas as porções são muito bem servidas, generosas, preço justo e deliciosas! Chegou muito rápido na minha casa e bem quentinho ainda!</p>
-                <div class="nota-experiencia">
-                    <p>Avaliação Geral: O risoto e talharim valem d+, quentinhos e bem servidos! Tiramisu não curti.</p>
-                </div>
+                <h2>Ital'in House - Brusque - Centro</h2>
+                <div class="post-meta">1 semana atrás</div>
+                <p>Fui surpreendido positivamente! Pedi um risoto e um talharim e ambas as porções são muito bem servidas, generosas, preço justo e deliciosas! Chegou muito rápido na minha casa e bem quentinho ainda! Pedi um tiramisu de sobremesa e não curti …</p>
+                <div class="nota-experiencia"><p>Deu bom na massa, mas pecou no doce!</p></div>
             </article>
 
             <article class="post" data-nota="10.0" data-data="2026-03-01">
@@ -230,12 +220,109 @@
                     <span class="post-categoria cat-sucesso">Lamber os beiços (9+)</span>
                     <span class="nota">10 / 10</span>
                 </div>
-                <h2>Pizzaria Lá Bella</h2>
-                <div class="post-meta">Primeiro de Maio, Brusque - SC | 1 mês atrás</div>
-                <p>Fui surpreendido de maneira muito positiva. Atendimento ótimo, desde o primeiro contato até a retirada. A pizza de costela é sem dúvidas a melhor da cidade e a portuguesa não fica para trás!</p>
-                <div class="nota-experiencia">
-                    <p>Avaliação Geral: Pizza maravilhosa! Costela é campeã! Comida: 5, Serviço: 5, Ambiente: 5.</p>
+                <h2>PIZZARIA LÁ BELLA</h2>
+                <div class="post-meta">1 mês atrás</div>
+                <p>Confesso que fiz o pedido sem muito otimismo, mas fui surpreendido de maneira muito positiva. O atimento é ótimo... pizza é maravilhosa! A borda de requeijão é extremamente recheada... A de costela é sem dúvidas a melhor da cidade!</p>
+                <div class="nota-experiencia"><p>Comida: 5 | Serviço: 5 | Ambiente: 5</p></div>
+            </article>
+
+            <article class="post" data-nota="8.0" data-data="2026-02-01">
+                <div class="post-header">
+                    <span class="post-categoria cat-alerta">Dá pra comer (7-8)</span>
+                    <span class="nota">8.0 / 10</span>
                 </div>
+                <h2>Boutique do Pão de Ló Brusque</h2>
+                <div class="post-meta">2 meses atrás</div>
+                <p>Eu achei o local fantástico! A decoração foi muito bem feita. Tudo lindo, sofisticado e arrojado... Achei o preço dos bolos meio "salgados" pelos tamanhos, mas às vezes deva ser que meu bolso não acompanhe o padrão do local, hehe...</p>
+                <div class="nota-experiencia"><p>Ambiente de primeira, mas prepara o bolso.</p></div>
+            </article>
+
+            <article class="post" data-nota="10.0" data-data="2026-01-01">
+                <div class="post-header">
+                    <span class="post-categoria cat-sucesso">Lamber os beiços (9+)</span>
+                    <span class="nota">10 / 10</span>
+                </div>
+                <h2>DOSS Local Pizza Shop</h2>
+                <div class="post-meta">3 meses atrás</div>
+                <p>É sem dúvidas uma das melhores casas gastronômicas de Brusque! Ambiente despojado, rústico, intimista, sensacional... A proposta de comer com as mãos é fantástica! A Campione é a "campeã" do meu coração...</p>
+                <div class="nota-experiencia"><p>Comida: 5 | Serviço: 5 | Ambiente: 5</p></div>
+            </article>
+
+            <article class="post" data-nota="10.0" data-data="2026-01-01">
+                <div class="post-header">
+                    <span class="post-categoria cat-sucesso">Lamber os beiços (9+)</span>
+                    <span class="nota">10 / 10</span>
+                </div>
+                <h2>Praia da Vila Bar</h2>
+                <div class="post-meta">3 meses atrás</div>
+                <p>O melhor bar de Imbituba! De frente pro marzão da Vila! Rústico, raiz... Porções deliciosas, às vezes um pouco gordurosas, mas nada que um Eno não resolva! Melhor Chopp Ipa da cidade, Melhor Caipirinha da história da humanidade!</p>
+                <div class="nota-experiencia"><p>Comida: 5 | Serviço: 5 | Ambiente: 5</p></div>
+            </article>
+
+            <article class="post" data-nota="9.0" data-data="2025-12-01">
+                <div class="post-header">
+                    <span class="post-categoria cat-sucesso">Lamber os beiços (9+)</span>
+                    <span class="nota">9.0 / 10</span>
+                </div>
+                <h2>Pizza para você Brusque</h2>
+                <div class="post-meta">4 meses atrás</div>
+                <p>A pizzaria me surpreendeu positivamente após eu ter lido tantos comentários negativos. Pelo valor das pizzas (30 reais) elas estavam bem gostosas. Massa fininha e bem recheada. Somente a de 4 queijos eu achei meio enjoativa...</p>
+                <div class="nota-experiencia"><p>Comida: 5 | Serviço: 5 | Ambiente: 4</p></div>
+            </article>
+
+            <article class="post" data-nota="10.0" data-data="2025-10-01">
+                <div class="post-header">
+                    <span class="post-categoria cat-sucesso">Lamber os beiços (9+)</span>
+                    <span class="nota">10 / 10</span>
+                </div>
+                <h2>DeepFourBlack Brusque OFICIAL</h2>
+                <div class="post-meta">6 meses atrás</div>
+                <p>Sem dúvidas, um dos melhores estabelecimentos de Brusque... Ambiente bem descolado, confortável... todos os hambúrgueres são divinos, destaque para a porção de bolinho de queijo gouda é sensacional, a melhor de todas!</p>
+                <div class="nota-experiencia"><p>Comida: 5 | Serviço: 5 | Ambiente: 5</p></div>
+            </article>
+
+            <article class="post" data-nota="10.0" data-data="2025-09-01">
+                <div class="post-header">
+                    <span class="post-categoria cat-sucesso">Lamber os beiços (9+)</span>
+                    <span class="nota">10 / 10</span>
+                </div>
+                <h2>Café Chaminé Delícias do Amazonas</h2>
+                <div class="post-meta">7 meses atrás</div>
+                <p>Não sou manauara, mas amo experimentar comidas de outras regiões do país... Amei o lugar. Atendimento cordial, a dona é uma simpatia em pessoa. Tudo limpo e organizado. O tucumã é uma ótima descoberta...</p>
+                <div class="nota-experiencia"><p>Comida: 5 | Serviço: 5 | Ambiente: 5</p></div>
+            </article>
+
+            <article class="post" data-nota="8.5" data-data="2025-01-05">
+                <div class="post-header">
+                    <span class="post-categoria cat-alerta">Dá pra comer (7-8)</span>
+                    <span class="nota">8.5 / 10</span>
+                </div>
+                <h2>Upper Burger | Hamburgueria</h2>
+                <div class="post-meta">1 ano atrás</div>
+                <p>Fui dia 05/01/25 e pedimos porções a lacarte. O ambiente é ok. Os garçons foram bem atenciosos, mas a recepcionista estava um pouco com a cara fechada... O hambúrguer estava muito gostoso também. Achei meio caro pelos tamanhos...</p>
+                <div class="nota-experiencia"><p>Comida: 5 | Serviço: 4 | Ambiente: 5</p></div>
+            </article>
+
+            <article class="post" data-nota="9.5" data-data="2025-04-01">
+                <div class="post-header">
+                    <span class="post-categoria cat-sucesso">Lamber os beiços (9+)</span>
+                    <span class="nota">9.5 / 10</span>
+                </div>
+                <h2>Alexandria Burger Brusque</h2>
+                <div class="post-meta">1 ano atrás</div>
+                <p>É sem dúvidas um dos melhores estabelecimentos de Brusque! Os hambúrgueres são deliciosos, destaque para o "El Patron" e os aperitivos são maravilhosos idem! O atendimento é impecável...</p>
+                <div class="nota-experiencia"><p>Hamburgueria de responsa em Brusque.</p></div>
+            </article>
+
+            <article class="post" data-nota="7.5" data-data="2025-04-01">
+                <div class="post-header">
+                    <span class="post-categoria cat-alerta">Dá pra comer (7-8)</span>
+                    <span class="nota">7.5 / 10</span>
+                </div>
+                <h2>Empório Zimbeer</h2>
+                <div class="post-meta">1 ano atrás</div>
+                <p>Em viagem de férias por Imbituba, fomos nesse pub, que é sensacional! Experimentamos praticamente todos os petiscos que são muito bons, cerveja Ipa gelada tudo certo! Nossa única ressalva é pra cobrança do couvert, 10 reais por cabeça é um assalto!</p>
+                <div class="nota-experiencia"><p>Tudo ótimo, menos o assalto do couvert!</p></div>
             </article>
 
             <article class="post" data-nota="3.0" data-data="2024-04-01">
@@ -244,65 +331,12 @@
                     <span class="nota">3.0 / 10</span>
                 </div>
                 <h2>HOUSEBAR</h2>
-                <div class="post-meta">Azambuja, Brusque - SC | 2 anos atrás</div>
-                <p>Prepara-se para comer muito arroz! É uma apoteose de arroz com recheios pífios de peixe. Se vc estiver com muita fome e pouco dinheiro eu recomendo, mas em outra situação não.</p>
-                <div class="nota-experiencia">
-                    <p>Avaliação Geral: SushiMASTERCHEF? Não espere Masterchef pelo preço. Comida: 2, Serviço: 4, Ambiente: 3.</p>
-                </div>
+                <div class="post-meta">2 anos atrás</div>
+                <p>Fui numa quarta feira e a atendente me informou que havia uma promoção... pelo valor não se dá pra esperar um masterchef do Érick Jacquin... Prepara-se para comer muito arroz! É uma apoteose de arroz com recheios pífios de peixe...</p>
+                <div class="nota-experiencia"><p>Comida: 2 | Serviço: 4 | Ambiente: 3</p></div>
             </article>
 
-        </div>
-
-    </div>
-
-    <footer>
-        <p>&copy; 2026 Comendo com o Luquinhas. Feito com fome e muita sinceridade, uai.</p>
-    </footer>
-
-    <script>
-        function filtrar(tipo, botao) {
-            document.querySelectorAll('.btn-filtro').forEach(b => b.classList.remove('ativo'));
-            botao.classList.add('ativo');
-
-            const posts = document.querySelectorAll('.post');
-            
-            posts.forEach(post => {
-                const nota = parseFloat(post.getAttribute('data-nota'));
-                
-                if (tipo === 'todos') {
-                    post.style.display = 'block';
-                } else if (tipo === 'alta' && nota >= 9.0) {
-                    post.style.display = 'block';
-                } else if (tipo === 'media' && nota >= 7.0 && nota < 9.0) {
-                    post.style.display = 'block';
-                } else if (tipo === 'baixa' && nota < 7.0) {
-                    post.style.display = 'block';
-                } else {
-                    post.style.display = 'none';
-                }
-            });
-        }
-
-        function ordenarRecentes(botao) {
-            document.querySelectorAll('.btn-filtro').forEach(b => b.classList.remove('ativo'));
-            botao.classList.add('ativo');
-
-            const container = document.getElementById('lista-posts');
-            const posts = Array.from(container.getElementsByClassName('post'));
-
-            posts.sort((a, b) => {
-                const dataA = new Date(a.getAttribute('data-data'));
-                const dataB = new Date(b.getAttribute('data-data'));
-                return dataB - dataA; 
-            });
-
-            container.innerHTML = '';
-            posts.forEach(post => {
-                post.style.display = 'block'; 
-                container.appendChild(post);
-            });
-        }
-    </script>
-
-</body>
-</html>
+            <article class="post" data-nota="10.0" data-data="2024-04-01">
+                <div class="post-header">
+                    <span class="post-categoria cat-sucesso">Lamber os beiços (9+)</span>
+                    <span class="nota">1
