@@ -4,9 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comendo com o Luquinhas - Críticas Sinceras, uai!</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Satisfy&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
     <style>
         :root {
             --cor-principal: #d35400; /* Cobre/Abóbora */
@@ -21,35 +18,56 @@
         }
 
         body {
-            font-family: 'Lora', serif; /* Fonte elegante e legível */
+            /* Voltando para as fontes Sans-Serif limpas de antes */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
             background-color: var(--cor-fundo);
-            background-image: url('https://www.transparenttextures.com/patterns/linen.png'); /* Textura sutil */
+            background-image: url('https://www.transparenttextures.com/patterns/linen.png'); /* Textura sutil mantida */
             color: var(--cor-texto);
         }
 
         header {
             background-color: var(--cor-card);
             text-align: center;
-            padding: 4rem 1rem 3rem 1rem;
-            border-bottom: 4px solid var(--cor-principal);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 5rem 1rem 3rem 1rem;
+            border-bottom: 5px solid var(--cor-principal);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            /* Ilustração de fundo com montanhas e igrejas barrocas de Minas */
+            background-image: url('https://cdn.pixabay.com/photo/2021/08/11/17/43/minas-gerais-6539115_1280.png');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        /* Overlay para garantir contraste do texto no header */
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(255, 255, 255, 0.7);
+            z-index: 1;
         }
 
         header h1 {
             margin: 0;
-            font-size: 4rem;
+            font-size: 3.5rem;
             color: var(--cor-principal);
-            font-family: 'Satisfy', cursive; /* Fonte manuscrita charmosa */
             letter-spacing: -1px;
+            font-weight: 800;
+            position: relative;
+            z-index: 2;
+            /* Toque de ferro batido sutil */
+            text-shadow: 2px 2px 0px rgba(74, 49, 33, 0.2);
         }
 
         header p {
             margin: 0.8rem 0 0;
-            font-size: 1.6rem;
-            color: #777777;
+            font-size: 1.4rem;
+            color: #555;
             font-style: italic;
+            position: relative;
+            z-index: 2;
         }
 
         .menu-filtros {
@@ -67,25 +85,24 @@
             background-color: transparent;
             border: 2px solid var(--cor-secundaria);
             border-radius: 30px;
-            padding: 0.7rem 1.5rem;
-            margin: 0.4rem;
+            padding: 0.6rem 1.3rem;
+            margin: 0.3rem;
             cursor: pointer;
             font-weight: bold;
             color: var(--cor-principal);
             transition: all 0.3s ease;
-            font-size: 1.1rem;
-            font-family: 'Lora', serif;
+            font-size: 1rem;
         }
 
         .btn-filtro:hover, .btn-filtro.ativo {
             background-color: var(--cor-principal);
             color: white;
             border-color: var(--cor-principal);
-            transform: scale(1.05);
+            transform: scale(1.03);
         }
 
         .container {
-            max-width: 950px;
+            max-width: 900px;
             margin: 3rem auto;
             padding: 0 1.5rem;
         }
@@ -97,32 +114,42 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.03);
             margin-bottom: 3rem;
             border-left: 8px solid var(--cor-sucesso);
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        /* Ilustração de Fogão de Lenha na seção Sobre Mim */
+        .sobre-mim img {
+            width: 120px;
+            height: auto;
+            opacity: 0.8;
         }
 
         .sobre-mim h3 {
             color: var(--cor-principal);
             margin-top: 0;
-            font-family: 'Satisfy', cursive;
-            font-size: 2.2rem;
+            font-size: 2rem;
+            font-weight: 800;
         }
 
         .sobre-mim p {
-            font-size: 1.2rem;
-            line-height: 1.8;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin: 0;
         }
 
         .post {
             background: var(--cor-card);
-            padding: 3rem;
+            padding: 2.5rem;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.03);
             margin-bottom: 3rem;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
         }
 
         .post:hover {
-            transform: translateY(-5px);
+            transform: translateY(-4px);
             box-shadow: 0 15px 40px rgba(0,0,0,0.06);
         }
 
@@ -130,16 +157,16 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
         }
 
         .post-categoria {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1.2rem;
+            gap: 0.4rem;
+            padding: 0.4rem 1.1rem;
             border-radius: 30px;
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: bold;
             text-transform: uppercase;
             color: #fff;
@@ -150,46 +177,44 @@
         .cat-perigo { background-color: var(--cor-perigo); }
 
         .nota-topo {
-            font-family: 'Satisfy', cursive;
-            font-size: 2rem;
+            font-size: 1.8rem;
             color: var(--cor-principal);
-            font-weight: bold;
+            font-weight: 800;
         }
 
         .post h2 {
-            margin: 0.5rem 0;
+            margin: 0.4rem 0;
             color: var(--cor-principal);
-            font-size: 2.5rem;
+            font-size: 2rem;
             letter-spacing: -1px;
-            font-family: 'Satisfy', cursive;
+            font-weight: 700;
         }
 
         .post-meta {
-            font-size: 1rem;
-            color: #999999;
-            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            color: #888;
+            margin-bottom: 1.3rem;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.4rem;
         }
 
         /* Mecanismo Nativo de Saiba Mais (Mineiro) */
         details {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         summary {
             background-color: var(--cor-secundaria);
             color: var(--cor-texto);
-            padding: 0.8rem 1.5rem;
+            padding: 0.7rem 1.4rem;
             border-radius: 10px;
             font-weight: bold;
             cursor: pointer;
-            font-family: 'Lora', serif;
             transition: background-color 0.3s ease;
             display: inline-block;
             list-style: none;
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
 
         summary::-webkit-details-marker {
@@ -201,10 +226,10 @@
         }
 
         .resenha-texto {
-            margin-top: 1.5rem;
-            line-height: 1.8;
-            font-size: 1.2rem;
-            padding: 1.5rem;
+            margin-top: 1.3rem;
+            line-height: 1.7;
+            font-size: 1.1rem;
+            padding: 1.3rem;
             background-color: #fffefb;
             border-radius: 10px;
             border: 1px solid #f2e6cf;
@@ -212,40 +237,40 @@
 
         .nota-experiencia {
             background-color: var(--cor-fundo);
-            padding: 1.5rem;
+            padding: 1.3rem;
             border-radius: 15px;
             border: 3px solid var(--cor-secundaria);
             margin-top: 1rem;
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.9rem;
         }
 
         .nota-experiencia p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: bold;
             margin: 0;
             color: var(--cor-principal);
-            font-family: 'Lora', serif;
         }
 
         footer {
             text-align: center;
-            padding: 4rem 1rem;
+            padding: 3rem 1rem;
             border-top: 2px solid var(--cor-secundaria);
-            color: #777777;
-            font-size: 1.1rem;
+            color: #888;
+            font-size: 1rem;
             background-color: #fff;
         }
 
         /* Responsividade */
         @media (max-width: 600px) {
-            header h1 { font-size: 3rem; }
-            header p { font-size: 1.3rem; }
-            .post h2 { font-size: 2rem; }
-            .post-header { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
-            .nota-topo { font-size: 1.8rem; }
-            .btn-filtro { font-size: 1rem; padding: 0.6rem 1.2rem; }
+            header h1 { font-size: 2.8rem; }
+            header p { font-size: 1.2rem; }
+            .post h2 { font-size: 1.8rem; }
+            .post-header { flex-direction: column; align-items: flex-start; gap: 0.6rem; }
+            .nota-topo { font-size: 1.6rem; }
+            .btn-filtro { font-size: 0.95rem; padding: 0.5rem 1.1rem; }
+            .sobre-mim { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
@@ -257,7 +282,7 @@
     </header>
 
     <div class="menu-filtros">
-        <span style="font-weight: bold; margin-right: 0.5rem; color: var(--cor-principal); font-size: 1.1rem;">Uai, filtrar por:</span>
+        <span style="font-weight: bold; margin-right: 0.5rem; color: var(--cor-principal); font-size: 1rem;">Uai, filtrar por:</span>
         <button class="btn-filtro ativo" onclick="filtrar('todos', this)">Todos</button>
         <button class="btn-filtro" onclick="filtrar('alta', this)">Nossinhora! (9+)</button>
         <button class="btn-filtro" onclick="filtrar('media', this)">Bão Demais (7-8)</button>
@@ -268,8 +293,11 @@
     <div class="container">
         
         <section class="sobre-mim">
-            <h3>Quem avisa, amigo é, uai!</h3>
-            <p>Seja bem-vindo. Eu sou o Luquinhas, contribuidor do Google Maps e apaixonado por comida. Cansei de gourmetização e resenha comprada. Aqui você vai encontrar papo reto sobre onde vale a pena gastar o seu dinheiro (e o seu estômago).</p>
+            <img src="https://cdn.pixabay.com/photo/2014/04/03/10/32/stove-310860_1280.png" alt="Fogão de Lenha Mineiro">
+            <div>
+                <h3>Quem avisa, amigo é, uai!</h3>
+                <p>Seja bem-vindo. Eu sou o Luquinhas, contribuidor do Google Maps e apaixonado por comida. Cansei de gourmetização e resenha comprada. Aqui você vai encontrar papo reto sobre onde vale a pena gastar o seu dinheiro (e o seu estômago).</p>
+            </div>
         </section>
 
         <div id="lista-posts">
@@ -301,162 +329,4 @@
                     <span class="nota-topo">10 / 10</span>
                 </div>
                 <h2>PIZZARIA LÁ BELLA</h2>
-                <div class="post-meta">📍 R. Florianópolis, 795 | 📅 1 mês atrás</div>
-                
-                <details>
-                    <summary>Dar uma espiada na resenha completa</summary>
-                    <div class="resenha-texto">
-                        Confesso que fiz o pedido sem muito otimismo, mas fui surpreendido de maneira muito positiva. O atimento é ótimo, desde o primeiro contato até a retirada, a moça que me atendeu é muito cordial e simpática. O pedido ficou pronto extremamente rápido e a pizza é maravilhosa! A borda de requeijão é extremamente recheada, tanto quanto pizza in si. A de costela é sem dúvidas a melhor da cidade e a portuguesa não fica para trás! Com certeza irei pedir + vezes!<br><br>
-                        Comida: 5 | Serviço: 5 | Ambiente: 5
-                    </div>
-                </details>
-
-                <div class="nota-experiencia">
-                    <span>💡</span>
-                    <p>Avaliação do Luquinhas: Costela campeã! Atendimento nota 1000.</p>
-                </div>
-            </article>
-
-            <article class="post" data-nota="8.0" data-data="2026-02-01">
-                <div class="post-header">
-                    <span class="post-categoria cat-alerta">🧀 Dá pra comer (7-8)</span>
-                    <span class="nota-topo">8.0 / 10</span>
-                </div>
-                <h2>Boutique do Pão de Ló Brusque</h2>
-                <div class="post-meta">📍 R. Paes Leme, 122 | 📅 2 meses atrás</div>
-                
-                <details>
-                    <summary>Dar uma espiada na resenha completa</summary>
-                    <div class="resenha-texto">
-                        Eu achei o local fantástico! A decoração foi muito bem feita. Tudo lindo, sofistisado e arrojado. O atendimento é quase majoritário de meninas e todas muito bem educadas e cordiais. Fui muito atendido desde a entrada até a saída. Tem estacionamento na porta e a variedade de produtos é vasta. Tem pra todo gosto, bolos, cheesecakes, capuccinos, cafés gelados, chás, sanduíches e por ai vai... Achei o preço dos bolos meio "salgados" pelos tamanhos, mas as vezes deva ser que meu bolso não acompanhe o padrão do local, hehe... De toda forma, recomenda d+ a visita!
-                    </div>
-                </details>
-
-                <div class="nota-experiencia">
-                    <span>💡</span>
-                    <p>Avaliação do Luquinhas: Ambiente lindo e atendimento ótimo, mas prepara o bolso para os bolos.</p>
-                </div>
-            </article>
-
-            <article class="post" data-nota="10.0" data-data="2026-01-01">
-                <div class="post-header">
-                    <span class="post-categoria cat-sucesso">🍲 Lamber os beiços (9+)</span>
-                    <span class="nota-topo">10 / 10</span>
-                </div>
-                <h2>DOSS Local Pizza Shop</h2>
-                <div class="post-meta">📍 R. João Bauer, 245 | 📅 3 meses atrás</div>
-                
-                <details>
-                    <summary>Dar uma espiada na resenha completa</summary>
-                    <div class="resenha-texto">
-                        É sem dúvidas uma das melhores casas gastronômicas de Brusque! Ambiente despojado, rústico, intimista, sensacional... O atendimento é impecável... Tanto o realizado pelos donos, quanto dos funcionários... Os produtos oferecidos então, são divinos... Desde os pães, as entradas e as pizzas, que são obras de arte... A proposta de comer com as mãos é fantástica! Tô tentando zerar o cardápio, mas a Campione é a "campeã" do meu coração... Recomendo elevado ao quadrado!<br><br>
-                        Comida: 5 | Serviço: 5 | Ambiente: 5
-                    </div>
-                </details>
-
-                <div class="nota-experiencia">
-                    <span>💡</span>
-                    <p>Avaliação do Luquinhas: Pizzas que são obras de arte. Comer com as mãos é show.</p>
-                </div>
-            </article>
-
-            <article class="post" data-nota="10.0" data-data="2026-01-01">
-                <div class="post-header">
-                    <span class="post-categoria cat-sucesso">🍲 Lamber os beiços (9+)</span>
-                    <span class="nota-topo">10 / 10</span>
-                </div>
-                <h2>Praia da Vila Bar</h2>
-                <div class="post-meta">📍 Av. Manoel Florentino Machado | 📅 3 meses atrás</div>
-                
-                <details>
-                    <summary>Dar uma espiada na resenha completa</summary>
-                    <div class="resenha-texto">
-                        O melhor bar de Imbituba! De frente pro marzão da Vila! Rústico, raiz, cosmopolitano! Atendimento acolhedor,as vezes vem uns brutuco te atender, mas assim que é bom! Pra não deixar o cliente muito mal acostumado! Porções deliciosas, as vezes um pouco gordurosas, mas nada que um Eno, Epocler e um Domperidona não resolvam! Melhor Chopp Ipa da cidade, Melhor Caipirinha da história da humanidade! Melhores pastéis, melhor casquinha de siri e a melhor porção de mandioca já feita! Sábado a tarde rola show de pagode! Eu queria morar aqui!<br><br>
-                        Comida: 5 | Serviço: 5 | Ambiente: 5
-                    </div>
-                </details>
-
-                <div class="nota-experiencia">
-                    <span>💡</span>
-                    <p>Avaliação do Luquinhas: Um paraíso rústico com as melhores porções e drinks. Queria morar lá.</p>
-                </div>
-            </article>
-
-            <article class="post" data-nota="9.0" data-data="2025-12-01">
-                <div class="post-header">
-                    <span class="post-categoria cat-sucesso">🍲 Lamber os beiços (9+)</span>
-                    <span class="nota-topo">9.0 / 10</span>
-                </div>
-                <h2>Pizza para você Brusque</h2>
-                <div class="post-meta">📍 R. São Leopoldo, 202 | 📅 4 meses atrás</div>
-                
-                <details>
-                    <summary>Dar uma espiada na resenha completa</summary>
-                    <div class="resenha-texto">
-                        A pizzaria me supreendeu positivamente após eu ter lido tantos comentários negativos. O APP deles é bem intuitivo e fácil de navegar e o atendimento via whatspp também é muito ágil e eficaz. Como moro + ou menos perto da pizzaria, resolvi pedir pra retirar, visto que tinha lido muitos comentários ruins sobre a demora da entrega. Em 15 minutos já mandaram mensagem falando que o pedido estava pronto. Ao chegar no local, fui muito bem atendido pela moça do caixa e chegando em casa veio a surpresa positiva. Pelo valor das pizzas(30 reais) elas estavam bem gostosas. Massa fininha e bem recheada. Somente a de 4 queijos eu achei meio enjoativa, mas a de lombinho com cheddar, frango com catupiry e destaque para a portuguesa estavam muito boas mesmo. Qualquer dia vou pedir pelo delivery, pra ver se demora mesmo kkkkkk. Enfim, de toda forma, recomenda a pedida!<br><br>
-                        Comida: 5 | Serviço: 5 | Ambiente: 4
-                    </div>
-                </details>
-
-                <div class="nota-experiencia">
-                    <span>💡</span>
-                    <p>Avaliação do Luquinhas: Por 30 reais, vale muito a pena. Massa fina e bem recheada.</p>
-                </div>
-            </article>
-
-            <article class="post" data-nota="10.0" data-data="2025-10-01">
-                <div class="post-header">
-                    <span class="post-categoria cat-sucesso">🍲 Lamber os beiços (9+)</span>
-                    <span class="nota-topo">10 / 10</span>
-                </div>
-                <h2>DeepFourBlack Brusque OFICIAL</h2>
-                <div class="post-meta">📍 R. Benjamin Constant, 26 | 📅 6 meses atrás</div>
-                
-                <details>
-                    <summary>Dar uma espiada na resenha completa</summary>
-                    <div class="resenha-texto">
-                        Sem dúvidas, um dos melhores estabelecimentos de Brusque... Ambiente bem descolado, confortável... Todos os colaboradores atendem muito bem, independente do dia que você vai... Tem uma sinuquinha marota de graça pra jogar, todos os hamburgueres são divinos, destaque para a porção de bolinho de queijo gouda é sensacional, a melhor de todas! Todo dia, até as 20:00hs tem happy hour, com porções com excelentes descontos e chopp e caipirinha por metade do preço! Eu simplesmente amo o lugar, recomendod++!<br><br>
-                        Comida: 5 | Serviço: 5 | Ambiente: 5
-                    </div>
-                </details>
-
-                <div class="nota-experiencia">
-                    <span>💡</span>
-                    <p>Avaliação do Luquinhas: Bolinho de queijo gouda perfeito e sinuquinha de graça.</p>
-                </div>
-            </article>
-
-            <article class="post" data-nota="10.0" data-data="2025-09-01">
-                <div class="post-header">
-                    <span class="post-categoria cat-sucesso">🍲 Lamber os beiços (9+)</span>
-                    <span class="nota-topo">10 / 10</span>
-                </div>
-                <h2>Café Chaminé Delícias do Amazonas</h2>
-                <div class="post-meta">📍 R. Afonso Pena, 56 | 📅 7 meses atrás</div>
-                
-                <details>
-                    <summary>Dar uma espiada na resenha completa</summary>
-                    <div class="resenha-texto">
-                        Não sou manauara, mas amo experimentar comidas de outras regiões do país... Amei o lugar. Atendimento cordial, a dona é uma simpatia em pessoa. Tudo limpo e organizado. Tem café à vontade. O tucumã é uma ótima descoberta... Já comi tapioca, cuzcuz e o Xis Caboclinho. A meta é zerar o cardápio kkkk. Um dos poucos lugares em Brusque que abre dia de domingo pra tomar uma café delicoso e sem pressa... Recomendo d+++!<br><br>
-                        Comida: 5 | Serviço: 5 | Ambiente: 5
-                    </div>
-                </details>
-
-                <div class="nota-experiencia">
-                    <span>💡</span>
-                    <p>Avaliação do Luquinhas: O tucumã foi uma ótima descoberta. Atendimento nota mil.</p>
-                </div>
-            </article>
-
-            <article class="post" data-nota="8.0" data-data="2025-01-05">
-                <div class="post-header">
-                    <span class="post-categoria cat-alerta">🧀 Dá pra comer (7-8)</span>
-                    <span class="nota-topo">8.0 / 10</span>
-                </div>
-                <h2>Upper Burger | Hamburgueria</h2>
-                <div class="post-meta">📍 R. Paes Leme, 85 | 📅 1 ano atrás</div>
-                
-                <details>
-                    <summary>Dar uma espiada na resenha completa</summary>
-                    <div class="resenha-texto">
-                        Fui dia 05/01/25 e pedimos porções a lacarte. O ambiente é ok, nada d+. Estava limpo e é bem arejado. Tem várias opções de drinks e chopps, inclusive IPA. Os garçons foram bem atenciosos, mas
+                <div class="post-meta">📍
