@@ -105,7 +105,7 @@
         }
 
         .post:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
             box-shadow: 0 10px 25px rgba(0,0,0,0.05);
         }
 
@@ -143,22 +143,49 @@
             margin-bottom: 1.2rem;
         }
 
-        .post p {
+        /* Mecanismo de Saiba Mais (Mineiro) */
+        .resenha-completa {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
             line-height: 1.7;
             font-size: 1.1rem;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .btn-espia {
+            background-color: var(--cor-secundaria);
+            color: var(--cor-texto);
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: 'Georgia', serif;
+            transition: background-color 0.2s;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .btn-espia:hover {
+            background-color: var(--cor-hover);
+        }
+
+        .resenha-completa.aberta {
+            max-height: 1000px; /* Grande o suficiente para o texto */
+            transition: max-height 0.6s ease-in;
         }
 
         .nota-experiencia {
             background-color: var(--cor-fundo);
-            padding: 1.5rem;
+            padding: 1.2rem;
             border-radius: 10px;
             border: 2px solid var(--cor-secundaria);
-            margin-top: 1.5rem;
+            margin-top: 0.5rem;
         }
 
         .nota-experiencia p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: bold;
             margin: 0;
             color: var(--cor-principal);
@@ -210,9 +237,14 @@
                     <span class="nota">8.5 / 10</span>
                 </div>
                 <h2>Ital'in House - Brusque - Centro</h2>
-                <div class="post-meta">1 semana atrás</div>
-                <p>Fui surpreendido positivamente! Pedi um risoto e um talharim e ambas as porções são muito bem servidas, generosas, preço justo e deliciosas! Chegou muito rápido na minha casa e bem quentinho ainda! Pedi um tiramisu de sobremesa e não curti …</p>
-                <div class="nota-experiencia"><p>Deu bom na massa, mas pecou no doce!</p></div>
+                <div class="post-meta">R. Ver. Guilherme Niebuhr, 2 - salas 3 e 4 | 1 semana atrás</div>
+                
+                <button class="btn-espia" onclick="toggleResenha(this)">Espia a resenha completa</button>
+                <div class="resenha-completa">
+                    Fui surpreendido positivamente! Pedi um risoto e um talharim e ambas as porções são muito bem servidas, generosas, preço justo e deliciosas! Chegou muito rápido na minha casa e bem quentinho ainda! Pedi um tiramisu de sobremesa e não curti …
+                </div>
+
+                <div class="nota-experiencia"><p>Avaliação do Luquinhas: Risoto e talharim valem d+, mas o doce deixou a desejar.</p></div>
             </article>
 
             <article class="post" data-nota="10.0" data-data="2026-03-01">
@@ -221,9 +253,15 @@
                     <span class="nota">10 / 10</span>
                 </div>
                 <h2>PIZZARIA LÁ BELLA</h2>
-                <div class="post-meta">1 mês atrás</div>
-                <p>Confesso que fiz o pedido sem muito otimismo, mas fui surpreendido de maneira muito positiva. O atimento é ótimo... pizza é maravilhosa! A borda de requeijão é extremamente recheada... A de costela é sem dúvidas a melhor da cidade!</p>
-                <div class="nota-experiencia"><p>Comida: 5 | Serviço: 5 | Ambiente: 5</p></div>
+                <div class="post-meta">R. Florianópolis, 795 - Primeiro de Maio | 1 mês atrás</div>
+                
+                <button class="btn-espia" onclick="toggleResenha(this)">Espia a resenha completa</button>
+                <div class="resenha-completa">
+                    Confesso que fiz o pedido sem muito otimismo, mas fui surpreendido de maneira muito positiva. O atimento é ótimo, desde o primeiro contato até a retirada, a moça que me atendeu é muito cordial e simpática. O pedido ficou pronto extremamente rápido e a pizza é maravilhosa! A borda de requeijão é extremamente recheada, tanto quanto pizza em si. A de costela é sem dúvidas a melhor da cidade e a portuguesa não fica para trás! Com certeza irei pedir + vezes!<br><br>
+                    Comida: 5 | Serviço: 5 | Ambiente: 5
+                </div>
+
+                <div class="nota-experiencia"><p>Avaliação do Luquinhas: Costela campeã! Atendimento nota 1000.</p></div>
             </article>
 
             <article class="post" data-nota="8.0" data-data="2026-02-01">
@@ -232,9 +270,14 @@
                     <span class="nota">8.0 / 10</span>
                 </div>
                 <h2>Boutique do Pão de Ló Brusque</h2>
-                <div class="post-meta">2 meses atrás</div>
-                <p>Eu achei o local fantástico! A decoração foi muito bem feita. Tudo lindo, sofisticado e arrojado... Achei o preço dos bolos meio "salgados" pelos tamanhos, mas às vezes deva ser que meu bolso não acompanhe o padrão do local, hehe...</p>
-                <div class="nota-experiencia"><p>Ambiente de primeira, mas prepara o bolso.</p></div>
+                <div class="post-meta">R. Paes Leme, 122 - Centro 1 | 2 meses atrás</div>
+                
+                <button class="btn-espia" onclick="toggleResenha(this)">Espia a resenha completa</button>
+                <div class="resenha-completa">
+                    Eu achei o local fantástico! A decoração foi muito bem feita. Tudo lindo, sofistisado e arrojado. O atendimento é quase majoritário de meninas e todas muito bem educadas e cordiais. Fui muito atendido desde a entrada até a saída. Tem estacionamento na porta e a variedade de produtos é vasta. Tem pra todo gosto, bolos, cheesecakes, capuccinos, cafés gelados, chás, sanduíches e por ai vai... Achei o preço dos bolos meio "salgados" pelos tamanhos, mas as vezes deva ser que meu bolso não acompanhe o padrão do local, hehe... De toda forma, recomendo d+ a visita!
+                </div>
+
+                <div class="nota-experiencia"><p>Avaliação do Luquinhas: Ambiente lindo e atendimento ótimo, mas prepara o bolso para os bolos.</p></div>
             </article>
 
             <article class="post" data-nota="10.0" data-data="2026-01-01">
@@ -243,9 +286,15 @@
                     <span class="nota">10 / 10</span>
                 </div>
                 <h2>DOSS Local Pizza Shop</h2>
-                <div class="post-meta">3 meses atrás</div>
-                <p>É sem dúvidas uma das melhores casas gastronômicas de Brusque! Ambiente despojado, rústico, intimista, sensacional... A proposta de comer com as mãos é fantástica! A Campione é a "campeã" do meu coração...</p>
-                <div class="nota-experiencia"><p>Comida: 5 | Serviço: 5 | Ambiente: 5</p></div>
+                <div class="post-meta">R. João Bauer, 245 - Centro 1 | 3 meses atrás</div>
+                
+                <button class="btn-espia" onclick="toggleResenha(this)">Espia a resenha completa</button>
+                <div class="resenha-completa">
+                    É sem dúvidas uma das melhores casas gastronômicas de Brusque! Ambiente despojado, rústico, intimista, sensacional... O atendimento é impecável... Tanto o realizado pelos donos, quanto dos funcionários... Os produtos oferecidos então, são divinos... Desde os pães, as entradas e as pizzas, que são obras de arte... A proposta de comer com as mãos é fantástica! Tô tentando zerar o cardápio, mas a Campione é a "campeã" do meu coração... Recomendo elevado ao quadrado!<br><br>
+                    Comida: 5 | Serviço: 5 | Ambiente: 5
+                </div>
+
+                <div class="nota-experiencia"><p>Avaliação do Luquinhas: Pizzas que são obras de arte. Comer com as mãos é show.</p></div>
             </article>
 
             <article class="post" data-nota="10.0" data-data="2026-01-01">
@@ -254,261 +303,8 @@
                     <span class="nota">10 / 10</span>
                 </div>
                 <h2>Praia da Vila Bar</h2>
-                <div class="post-meta">3 meses atrás</div>
-                <p>O melhor bar de Imbituba! De frente pro marzão da Vila! Rústico, raiz... Porções deliciosas, às vezes um pouco gordurosas, mas nada que um Eno não resolva! Melhor Chopp Ipa da cidade, Melhor Caipirinha da história da humanidade!</p>
-                <div class="nota-experiencia"><p>Comida: 5 | Serviço: 5 | Ambiente: 5</p></div>
-            </article>
-
-            <article class="post" data-nota="9.0" data-data="2025-12-01">
-                <div class="post-header">
-                    <span class="post-categoria cat-sucesso">Lamber os beiços (9+)</span>
-                    <span class="nota">9.0 / 10</span>
-                </div>
-                <h2>Pizza para você Brusque</h2>
-                <div class="post-meta">4 meses atrás</div>
-                <p>A pizzaria me surpreendeu positivamente após eu ter lido tantos comentários negativos. Pelo valor das pizzas (30 reais) elas estavam bem gostosas. Massa fininha e bem recheada. Somente a de 4 queijos eu achei meio enjoativa...</p>
-                <div class="nota-experiencia"><p>Comida: 5 | Serviço: 5 | Ambiente: 4</p></div>
-            </article>
-
-            <article class="post" data-nota="10.0" data-data="2025-10-01">
-                <div class="post-header">
-                    <span class="post-categoria cat-sucesso">Lamber os beiços (9+)</span>
-                    <span class="nota">10 / 10</span>
-                </div>
-                <h2>DeepFourBlack Brusque OFICIAL</h2>
-                <div class="post-meta">6 meses atrás</div>
-                <p>Sem dúvidas, um dos melhores estabelecimentos de Brusque... Ambiente bem descolado, confortável... todos os hambúrgueres são divinos, destaque para a porção de bolinho de queijo gouda é sensacional, a melhor de todas!</p>
-                <div class="nota-experiencia"><p>Comida: 5 | Serviço: 5 | Ambiente: 5</p></div>
-            </article>
-
-            <article class="post" data-nota="10.0" data-data="2025-09-01">
-                <div class="post-header">
-                    <span class="post-categoria cat-sucesso">Lamber os beiços (9+)</span>
-                    <span class="nota">10 / 10</span>
-                </div>
-                <h2>Café Chaminé Delícias do Amazonas</h2>
-                <div class="post-meta">7 meses atrás</div>
-                <p>Não sou manauara, mas amo experimentar comidas de outras regiões do país... Amei o lugar. Atendimento cordial, a dona é uma simpatia em pessoa. Tudo limpo e organizado. O tucumã é uma ótima descoberta...</p>
-                <div class="nota-experiencia"><p>Comida: 5 | Serviço: 5 | Ambiente: 5</p></div>
-            </article>
-
-            <article class="post" data-nota="8.5" data-data="2025-01-05">
-                <div class="post-header">
-                    <span class="post-categoria cat-alerta">Dá pra comer (7-8)</span>
-                    <span class="nota">8.5 / 10</span>
-                </div>
-                <h2>Upper Burger | Hamburgueria</h2>
-                <div class="post-meta">1 ano atrás</div>
-                <p>Fui dia 05/01/25 e pedimos porções a lacarte. O ambiente é ok. Os garçons foram bem atenciosos, mas a recepcionista estava um pouco com a cara fechada... O hambúrguer estava muito gostoso também. Achei meio caro pelos tamanhos...</p>
-                <div class="nota-experiencia"><p>Comida: 5 | Serviço: 4 | Ambiente: 5</p></div>
-            </article>
-
-            <article class="post" data-nota="9.5" data-data="2025-04-01">
-                <div class="post-header">
-                    <span class="post-categoria cat-sucesso">Lamber os beiços (9+)</span>
-                    <span class="nota">9.5 / 10</span>
-                </div>
-                <h2>Alexandria Burger Brusque</h2>
-                <div class="post-meta">1 ano atrás</div>
-                <p>É sem dúvidas um dos melhores estabelecimentos de Brusque! Os hambúrgueres são deliciosos, destaque para o "El Patron" e os aperitivos são maravilhosos idem! O atendimento é impecável...</p>
-                <div class="nota-experiencia"><p>Hamburgueria de responsa em Brusque.</p></div>
-            </article>
-
-            <article class="post" data-nota="7.5" data-data="2025-04-01">
-                <div class="post-header">
-                    <span class="post-categoria cat-alerta">Dá pra comer (7-8)</span>
-                    <span class="nota">7.5 / 10</span>
-                </div>
-                <h2>Empório Zimbeer</h2>
-                <div class="post-meta">1 ano atrás</div>
-                <p>Em viagem de férias por Imbituba, fomos nesse pub, que é sensacional! Experimentamos praticamente todos os petiscos que são muito bons, cerveja Ipa gelada tudo certo! Nossa única ressalva é pra cobrança do couvert, 10 reais por cabeça é um assalto!</p>
-                <div class="nota-experiencia"><p>Tudo ótimo, menos o assalto do couvert!</p></div>
-            </article>
-
-            <article class="post" data-nota="3.0" data-data="2024-04-01">
-                <div class="post-header">
-                    <span class="post-categoria cat-perigo">Nossinhora, furada! (<7)</span>
-                    <span class="nota">3.0 / 10</span>
-                </div>
-                <h2>HOUSEBAR</h2>
-                <div class="post-meta">2 anos atrás</div>
-                <p>Fui numa quarta feira e a atendente me informou que havia uma promoção... pelo valor não se dá pra esperar um masterchef do Érick Jacquin... Prepara-se para comer muito arroz! É uma apoteose de arroz com recheios pífios de peixe...</p>
-                <div class="nota-experiencia"><p>Comida: 2 | Serviço: 4 | Ambiente: 3</p></div>
-            </article>
-
-            <article class="post" data-nota="10.0" data-data="2024-04-01">
-                <div class="post-header">
-                    <span class="post-categoria cat-sucesso">Lamber os beiços (9+)</span>
-                    <span class="nota">10 / 10</span>
-                </div>
-                <h2>Restaurante Nayme Culinária Árabe Curitiba</h2>
-                <div class="post-meta">2 anos atrás</div>
-                <p>Sou pobre financeiramente, mas de vez em quando, me aventuro em restaurantes chiques kkkkkkk... Em passagem por Curitiba, fui nesse restaurante árabe e sai de lá extremamente satisfeito! Pratos saborosos e atendimento excelente!</p>
-                <div class="nota-experiencia"><p>Comida: 5 | Serviço: 5 | Ambiente: 5</p></div>
-            </article>
-
-            <article class="post" data-nota="9.0" data-data="2024-04-01">
-                <div class="post-header">
-                    <span class="post-categoria cat-sucesso">Lamber os beiços (9+)</span>
-                    <span class="nota">9.0 / 10</span>
-                </div>
-                <h2>Camaleão Burgers</h2>
-                <div class="post-meta">2 anos atrás</div>
-                <p>Fui ontem com minha esposa e gostamos bastante. O hambúrguer é muito bom, as bebidas geladas e servem negroni, fato raro na cidade. E lá o hambúrguer é servido do jeito que tem que ser, sem frescurinha de garfo e faca!</p>
-                <div class="nota-experiencia"><p>Sem frescuras, hambúrguer de verdade!</p></div>
-            </article>
-
-            <article class="post" data-nota="2.0" data-data="2023-04-01">
-                <div class="post-header">
-                    <span class="post-categoria cat-perigo">Nossinhora, furada! (<7)</span>
-                    <span class="nota">2.0 / 10</span>
-                </div>
-                <h2>Keep Rocking Pub</h2>
-                <div class="post-meta">3 anos atrás</div>
-                <p>Um local, auto denominado pub, que não abre no fim de semana... Só em Brusque mesmo aheuasheuahsueaseaseas</p>
-                <div class="nota-experiencia"><p>Pub que não abre no fim de semana?</p></div>
-            </article>
-
-            <article class="post" data-nota="5.0" data-data="2023-04-01">
-                <div class="post-header">
-                    <span class="post-categoria cat-perigo">Nossinhora, furada! (<7)</span>
-                    <span class="nota">5.0 / 10</span>
-                </div>
-                <h2>Hi Dogz Pizza Burger</h2>
-                <div class="post-meta">3 anos atrás</div>
-                <p>Não gostei da proposta de ir no caixa pagar e depois buscar tudo... Sobre a pizza, achamos bem mais ou menos... Massa estranha, meio borrachuda e a mexicana que pedimos o doritos estava murcho e duro...</p>
-                <div class="nota-experiencia"><p>Atendimento nota mil, mas a comida pecou d+.</p></div>
-            </article>
-
-            <article class="post" data-nota="1.0" data-data="2023-04-01">
-                <div class="post-header">
-                    <span class="post-categoria cat-perigo">Nossinhora, furada! (<7)</span>
-                    <span class="nota">1.0 / 10</span>
-                </div>
-                <h2>Balbúrdia Cervejeira Itajaí</h2>
-                <div class="post-meta">3 anos atrás</div>
-                <p>Eu sinceramente não entendi a proposta do local... Tudo pago antes, você tem que ir buscar na torneira, não tinha a comida que queríamos e o banheiro fica há uns 400 quilômetros de distância do bar. Sai de lá totalmente frustrado...</p>
-                <div class="nota-experiencia"><p>Uma grande balbúrdia mesmo, do jeito ruim.</p></div>
-            </article>
-
-            <article class="post" data-nota="9.0" data-data="2023-04-01">
-                <div class="post-header">
-                    <span class="post-categoria cat-sucesso">Lamber os beiços (9+)</span>
-                    <span class="nota">9.0 / 10</span>
-                </div>
-                <h2>La Notte Bar & Cozinha</h2>
-                <div class="post-meta">3 anos atrás</div>
-                <p>O lugar é sensacional! Excelente atendimento... Ambiente com decoração primorosa, drinks magistrais e comida feita com qualidade total! Tudo perfeito. As únicas observações são a falta de acessibilidade e preços elevados.</p>
-                <div class="nota-experiencia"><p>Sensacional, com ressalva na acessibilidade.</p></div>
-            </article>
-
-            <article class="post" data-nota="10.0" data-data="2023-04-01">
-                <div class="post-header">
-                    <span class="post-categoria cat-sucesso">Lamber os beiços (9+)</span>
-                    <span class="nota">10 / 10</span>
-                </div>
-                <h2>Jost Burger</h2>
-                <div class="post-meta">3 anos atrás</div>
-                <p>Melhor hamburgueria da cidade! Batata frita parece a do Mac, cebola frita tbm é top! Caipirinha show, chopp geladoooo e qualquer hambúrguer é muito bom, pode pedir sem medo! Atendimento ótimo!</p>
-                <div class="nota-experiencia"><p>Topzeira d+! Melhor da cidade.</p></div>
-            </article>
-
-            <article class="post" data-nota="4.0" data-data="2023-04-01">
-                <div class="post-header">
-                    <span class="post-categoria cat-perigo">Nossinhora, furada! (<7)</span>
-                    <span class="nota">4.0 / 10</span>
-                </div>
-                <h2>Tsurus</h2>
-                <div class="post-meta">3 anos atrás</div>
-                <p>Não é isso tudo que falam... É caro só pra selecionar a galera mesmo... Peças limitadas, ambiente pequeno, estacionamento inexistente e bebidas de preço exorbitante... Só pra nata mesmo...</p>
-                <div class="nota-experiencia"><p>Caro pelo que entrega.</p></div>
-            </article>
-
-            <article class="post" data-nota="2.0" data-data="2023-04-01">
-                <div class="post-header">
-                    <span class="post-categoria cat-perigo">Nossinhora, furada! (<7)</span>
-                    <span class="nota">2.0 / 10</span>
-                </div>
-                <h2>Nippon</h2>
-                <div class="post-meta">3 anos atrás</div>
-                <p>Os pratos são até gostosos, mas o atendimento deve ser o pior da cidade... Demora umas 4 horas pra chegar os pedidos e eles nunca vem do jeito que vc pediu... Música sempre extremamente alta.</p>
-                <div class="nota-experiencia"><p>Atendimento fraco e barulho alto.</p></div>
-            </article>
-
-            <article class="post" data-nota="10.0" data-data="2023-04-01">
-                <div class="post-header">
-                    <span class="post-categoria cat-sucesso">Lamber os beiços (9+)</span>
-                    <span class="nota">10 / 10</span>
-                </div>
-                <h2>MATRYOSHKA Sabores do Leste Europeu</h2>
-                <div class="post-meta">3 anos atrás</div>
-                <p>Surpreendente experiência no centro de Florianópolis... Tudo perfeito, desde o atendimento do Ed, até os pratos e bebidas... A sobremesa Praça Vermelha foi a melhor que já comemos na vida!</p>
-                <div class="nota-experiencia"><p>Sobremesa inesquecível!</p></div>
-            </article>
-
-            <article class="post" data-nota="7.5" data-data="2023-04-01">
-                <div class="post-header">
-                    <span class="post-categoria cat-alerta">Dá pra comer (7-8)</span>
-                    <span class="nota">7.5 / 10</span>
-                </div>
-                <h2>No Class</h2>
-                <div class="post-meta">3 anos atrás</div>
-                <p>Fui muito bem atendimento... Os drinks que pedimos estavam fantásticos! Minha única ressalva são para as porções, que não são o forte da casa, os fortes são mesmo os drinks... são bem pequenas e caras.</p>
-                <div class="nota-experiencia"><p>Foque nos drinks!</p></div>
-            </article>
-
-        </div>
-
-    </div>
-
-    <footer>
-        <p>&copy; 2026 Comendo com o Luquinhas. Feito com fome e muita sinceridade, uai.</p>
-    </footer>
-
-    <script>
-        function filtrar(tipo, botao) {
-            document.querySelectorAll('.btn-filtro').forEach(b => b.classList.remove('ativo'));
-            botao.classList.add('ativo');
-
-            const posts = document.querySelectorAll('.post');
-            
-            posts.forEach(post => {
-                const nota = parseFloat(post.getAttribute('data-nota'));
+                <div class="post-meta">Av. Manoel Florentino Machado - Imbituba | 3 meses atrás</div>
                 
-                if (tipo === 'todos') {
-                    post.style.display = 'block';
-                } else if (tipo === 'alta' && nota >= 9.0) {
-                    post.style.display = 'block';
-                } else if (tipo === 'media' && nota >= 7.0 && nota < 9.0) {
-                    post.style.display = 'block';
-                } else if (tipo === 'baixa' && nota < 7.0) {
-                    post.style.display = 'block';
-                } else {
-                    post.style.display = 'none';
-                }
-            });
-        }
-
-        function ordenarRecentes(botao) {
-            document.querySelectorAll('.btn-filtro').forEach(b => b.classList.remove('ativo'));
-            botao.classList.add('ativo');
-
-            const container = document.getElementById('lista-posts');
-            const posts = Array.from(container.getElementsByClassName('post'));
-
-            posts.sort((a, b) => {
-                const dataA = new Date(a.getAttribute('data-data'));
-                const dataB = new Date(b.getAttribute('data-data'));
-                return dataB - dataA; 
-            });
-
-            container.innerHTML = '';
-            posts.forEach(post => {
-                post.style.display = 'block'; 
-                container.appendChild(post);
-            });
-        }
-    </script>
-
-</body>
-</html>
+                <button class="btn-espia" onclick="toggleResenha(this)">Espia a resenha completa</button>
+                <div class="resenha-completa">
+                    O melhor bar de Imbituba! De frente pro marzão da Vila! Rústico, raiz, cosmopolitano! Atendimento acolhedor,as vezes vem uns brutuco te atender, mas assim que
