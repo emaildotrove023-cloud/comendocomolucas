@@ -24,7 +24,7 @@
         header {
             background-color: var(--cor-card);
             text-align: center;
-            padding: 3rem 1rem;
+            padding: 3rem 1rem 1.5rem 1rem;
             border-bottom: 5px solid var(--cor-principal);
         }
 
@@ -39,6 +39,35 @@
             font-size: 1.2rem;
             color: #747d8c;
             font-style: italic;
+        }
+
+        /* Menu de Navegação e Filtros */
+        .menu-filtros {
+            background-color: #fff;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .btn-filtro {
+            background-color: var(--cor-fundo);
+            border: 2px solid #dcdde1;
+            border-radius: 20px;
+            padding: 0.5rem 1rem;
+            margin: 0.3rem;
+            cursor: pointer;
+            font-weight: bold;
+            color: var(--cor-texto);
+            transition: all 0.2s ease;
+        }
+
+        .btn-filtro:hover, .btn-filtro.ativo {
+            background-color: var(--cor-principal);
+            color: white;
+            border-color: var(--cor-principal);
         }
 
         .container {
@@ -62,6 +91,11 @@
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
             margin-bottom: 2rem;
+            transition: transform 0.2s;
+        }
+
+        .post:hover {
+            transform: translateY(-3px);
         }
 
         .post-categoria {
@@ -115,6 +149,14 @@
         <p>A verdade nua, crua e bem temperada sobre a comida por aí.</p>
     </header>
 
+    <div class="menu-filtros">
+        <span style="font-weight: bold; margin-right: 0.5rem;">Filtrar por:</span>
+        <button class="btn-filtro ativo" onclick="filtrar('todos', this)">Todos</button>
+        <button class="btn-filtro" onclick="filtrar('alta', this)">Notas Altas (7+)</button>
+        <button class="btn-filtro" onclick="filtrar('baixa', this)">Notas Baixas (< 7)</button>
+        <button class="btn-filtro" onclick="ordenarRecentes(this)">Mais Recentes</button>
+    </div>
+
     <div class="container">
         
         <section class="sobre-mim">
@@ -122,27 +164,84 @@
             <p>Seja bem-vindo. Eu sou o Luquinhas, contribuidor do Google Maps e apaixonado por comida. Cansei de gourmetização e resenha comprada. Aqui você vai encontrar papo reto sobre onde vale a pena gastar o seu dinheiro (e o seu estômago).</p>
         </section>
 
-        <article class="post">
-            <span class="post-categoria cat-sucesso">De lamber os beiços</span>
-            <h2>O hambúrguer que me fez perder a postura</h2>
-            <div class="post-meta">Postado em 01 de Abril de 2026 • Local: Burger do Bairro</div>
-            <p>Fui sem muita expectativa e saí de lá querendo abraçar o chapeiro. O ponto da carne estava perfeito, o queijo derretendo sem ser aquela piscina de óleo e o pão brioche aguentou firme até a última mordida sem desmanchar. É o clássico bem feito que humilha muito lugar que cobra 70 reais num disco de carne.</p>
-            <div class="nota">Nota da experiência: 9.5/10 (Só não dou 10 porque a batata podia ser mais crocante).</div>
-        </article>
+        <div id="lista-posts">
 
-        <article class="post">
-            <span class="post-categoria cat-perigo">Engolindo sapo</span>
-            <h2>O Risoto de vento do restaurante chique</h2>
-            <div class="post-meta">Postado em 28 de Março de 2026 • Local: Ristorante Caro Demais</div>
-            <p>Sabe aquele lugar com luz baixa, música instrumental e um prato que custa três dígitos? Pois é. Pedi um risoto de camarão que parecia uma sopa de arroz parboilizado. Contei exatamente três camarões (pequenos!) perdidos no meio do prato. O garçom foi super educado, mas a comida parecia que tinha sido feita com pressa e sem amor nenhum.</p>
-            <div class="nota">Nota da experiência: 3/10 (A água com gás estava boa).</div>
-        </article>
+            <article class="post" data-nota="9.5" data-data="2026-04-01">
+                <span class="post-categoria cat-sucesso">De lamber os beiços</span>
+                <h2>O hambúrguer que me fez perder a postura</h2>
+                <div class="post-meta">Postado em 01 de Abril de 2026 • Local: Burger do Bairro</div>
+                <p>Fui sem muita expectativa e saí de lá querendo abraçar o chapeiro. O ponto da carne estava perfeito, o queijo derretendo sem ser aquela piscina de óleo e o pão brioche aguentou firme até a última mordida sem desmanchar.</p>
+                <div class="nota">Nota da experiência: 9.5/10</div>
+            </article>
+
+            <article class="post" data-nota="3.0" data-data="2026-03-28">
+                <span class="post-categoria cat-perigo">Engolindo sapo</span>
+                <h2>O Risoto de vento do restaurante chique</h2>
+                <div class="post-meta">Postado em 28 de Março de 2026 • Local: Ristorante Caro Demais</div>
+                <p>Pedi um risoto de camarão que parecia uma sopa de arroz parboilizado. Contei exatamente três camarões perdidos no meio do prato. O garçom foi super educado, mas a comida parecia que tinha sido feita com pressa e sem amor nenhum.</p>
+                <div class="nota">Nota da experiência: 3.0/10</div>
+            </article>
+
+            <article class="post" data-nota="6.5" data-data="2026-03-15">
+                <span class="post-categoria cat-alerta">Pra comer rezando (ou chorando)</span>
+                <h2>A famosa pizza do centro</h2>
+                <div class="post-meta">Postado em 15 de Março de 2026 • Local: Pizzaria Central</div>
+                <p>O sabor da pizza é bom, a massa é bem fininha do jeito que eu gosto. Mas demorou mais de uma hora para chegar na mesa e o refrigerante estava quente. Vale pela comida, mas vá armado de paciência.</p>
+                <div class="nota">Nota da experiência: 6.5/10</div>
+            </article>
+
+        </div>
 
     </div>
 
     <footer>
         <p>&copy; 2026 Comendo com o Luquinhas. Feito com fome e muita sinceridade.</p>
     </footer>
+
+    <script>
+        function filtrar(tipo, botao) {
+            // Atualiza a classe ativa do botão
+            document.querySelectorAll('.btn-filtro').forEach(b => b.classList.remove('ativo'));
+            botao.classList.add('ativo');
+
+            const posts = document.querySelectorAll('.post');
+            
+            posts.forEach(post => {
+                const nota = parseFloat(post.getAttribute('data-nota'));
+                
+                if (tipo === 'todos') {
+                    post.style.display = 'block';
+                } else if (tipo === 'alta' && nota >= 7) {
+                    post.style.display = 'block';
+                } else if (tipo === 'baixa' && nota < 7) {
+                    post.style.display = 'block';
+                } else {
+                    post.style.display = 'none';
+                }
+            });
+        }
+
+        function ordenarRecentes(botao) {
+            document.querySelectorAll('.btn-filtro').forEach(b => b.classList.remove('ativo'));
+            botao.classList.add('ativo');
+
+            const container = document.getElementById('lista-posts');
+            const posts = Array.from(container.getElementsByClassName('post'));
+
+            posts.sort((a, b) => {
+                const dataA = new Date(a.getAttribute('data-data'));
+                const dataB = new Date(b.getAttribute('data-data'));
+                return dataB - dataA; // Mais recente primeiro
+            });
+
+            // Limpa e reinsere na ordem certa
+            container.innerHTML = '';
+            posts.forEach(post => {
+                post.style.display = 'block'; // Garante que todos apareçam ao ordenar
+                container.appendChild(post);
+            });
+        }
+    </script>
 
 </body>
 </html>
