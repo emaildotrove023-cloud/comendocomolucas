@@ -6,15 +6,19 @@
     <title>Comendo com o Luquinhas - Críticas Sinceras</title>
     <style>
         :root {
-            --cor-principal: #ff4757;
-            --cor-secundaria: #2ed573;
-            --cor-texto: #2f3542;
-            --cor-fundo: #f1f2f6;
+            --cor-principal: #607d3b; /* Azeitona */
+            --cor-secundaria: #f2e6cf; /* Queijo */
+            --cor-texto: #333333;
+            --cor-fundo: #faf8f5; /* Off-white */
             --cor-card: #ffffff;
+            --cor-hover: #e0d0b8; /* Queijo escuro */
+            --cor-sucesso: #a3b18a; /* Verde folha */
+            --cor-alerta: #e9c46a; /* Amarelo ouro */
+            --cor-perigo: #e76f51; /* Laranja queima */
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Georgia', serif; /* Toque clássico */
             margin: 0;
             padding: 0;
             background-color: var(--cor-fundo);
@@ -24,43 +28,46 @@
         header {
             background-color: var(--cor-card);
             text-align: center;
-            padding: 2.5rem 1rem 1.5rem 1rem;
-            border-bottom: 5px solid var(--cor-principal);
+            padding: 3rem 1rem 2rem 1rem;
+            border-bottom: 2px solid var(--cor-secundaria);
         }
 
         header h1 {
             margin: 0;
-            font-size: 2.5rem;
+            font-size: 3rem;
             color: var(--cor-principal);
+            letter-spacing: -1px;
         }
 
         header p {
             margin: 0.5rem 0 0;
-            font-size: 1.2rem;
-            color: #747d8c;
+            font-size: 1.4rem;
+            color: #777777;
             font-style: italic;
         }
 
+        /* Menu de Navegação e Filtros */
         .menu-filtros {
             background-color: #fff;
             padding: 1rem;
             text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             position: sticky;
             top: 0;
             z-index: 100;
         }
 
         .btn-filtro {
-            background-color: var(--cor-fundo);
-            border: 2px solid #dcdde1;
-            border-radius: 20px;
-            padding: 0.5rem 1rem;
+            background-color: transparent;
+            border: 2px solid var(--cor-secundaria);
+            border-radius: 30px;
+            padding: 0.6rem 1.2rem;
             margin: 0.3rem;
             cursor: pointer;
             font-weight: bold;
-            color: var(--cor-texto);
+            color: var(--cor-principal);
             transition: all 0.2s ease;
+            font-size: 1rem;
         }
 
         .btn-filtro:hover, .btn-filtro.ativo {
@@ -70,75 +77,113 @@
         }
 
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 2rem auto;
             padding: 0 1rem;
         }
 
         .sobre-mim {
             background: var(--cor-card);
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            margin-bottom: 2rem;
-            border-left: 5px solid var(--cor-secundaria);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            margin-bottom: 2.5rem;
+            border-left: 5px solid var(--cor-sucesso);
+        }
+
+        .sobre-mim h3 {
+            color: var(--cor-principal);
+            margin-top: 0;
+        }
+
+        .sobre-mim p {
+            font-size: 1.1rem;
+            line-height: 1.7;
         }
 
         .post {
             background: var(--cor-card);
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            margin-bottom: 1.5rem;
-            transition: transform 0.2s;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            margin-bottom: 2.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
         .post:hover {
-            transform: translateY(-3px);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
         }
 
         .post-categoria {
             display: inline-block;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
             font-weight: bold;
             text-transform: uppercase;
             color: #fff;
         }
 
-        .cat-sucesso { background-color: var(--cor-secundaria); }
-        .cat-alerta { background-color: #ffa502; }
-        .cat-perigo { background-color: var(--cor-principal); }
+        .cat-sucesso { background-color: var(--cor-sucesso); }
+        .cat-alerta { background-color: var(--cor-alerta); color: var(--cor-texto); }
+        .cat-perigo { background-color: var(--cor-perigo); }
 
         .post h2 {
-            margin: 0.8rem 0 0.3rem;
-            color: #2f3542;
-            font-size: 1.4rem;
+            margin: 0.5rem 0;
+            color: var(--cor-principal);
+            font-size: 2rem;
+            letter-spacing: -1px;
         }
 
         .post-meta {
-            font-size: 0.85rem;
-            color: #a4b0be;
-            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+            color: #999999;
+            margin-bottom: 1.2rem;
         }
 
         .post p {
-            line-height: 1.5;
-            margin-bottom: 0.8rem;
+            line-height: 1.7;
+            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
         }
 
-        .nota {
-            font-size: 1rem;
+        .nota-experiencia {
+            background-color: var(--cor-fundo);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 2px solid var(--cor-secundaria);
+            margin-top: 1.5rem;
+        }
+
+        .nota-experiencia p {
+            font-size: 1.2rem;
             font-weight: bold;
+            margin: 0;
             color: var(--cor-principal);
         }
 
         footer {
             text-align: center;
-            padding: 2rem;
-            color: #747d8c;
-            font-size: 0.9rem;
+            padding: 3rem 1rem;
+            border-top: 2px solid var(--cor-secundaria);
+            color: #777777;
+            font-size: 1rem;
+        }
+
+        /* Responsividade */
+        @media (max-width: 600px) {
+            header h1 { font-size: 2.5rem; }
+            header p { font-size: 1.2rem; }
+            .post h2 { font-size: 1.7rem; }
+            .btn-filtro { font-size: 0.9rem; padding: 0.5rem 1rem; }
         }
     </style>
 </head>
@@ -146,208 +191,64 @@
 
     <header>
         <h1>Comendo com o Luquinhas</h1>
-        <p>A verdade nua, crua e bem temperada sobre a comida por aí.</p>
+        <p>A verdade nua, crua e bem temperada sobre a comida por aí, uai!</p>
     </header>
 
     <div class="menu-filtros">
-        <span style="font-weight: bold; margin-right: 0.5rem;">Filtrar:</span>
+        <span style="font-weight: bold; margin-right: 0.5rem; color: var(--cor-principal);">Uai, filtrar por:</span>
         <button class="btn-filtro ativo" onclick="filtrar('todos', this)">Todos</button>
-        <button class="btn-filtro" onclick="filtrar('alta', this)">Recomendo (8+)</button>
-        <button class="btn-filtro" onclick="filtrar('baixa', this)">Furada (< 7)</button>
+        <button class="btn-filtro" onclick="filtrar('alta', this)">Lamber os beiços (9+)</button>
+        <button class="btn-filtro" onclick="filtrar('media', this)">Dá pra comer (7-8)</button>
+        <button class="btn-filtro" onclick="filtrar('baixa', this)">Nossinhora, furada! (<7)</button>
         <button class="btn-filtro" onclick="ordenarRecentes(this)">Mais Recentes</button>
     </div>
 
     <div class="container">
         
         <section class="sobre-mim">
-            <h3>Quem avisa, amigo é!</h3>
+            <h3>Quem avisa, amigo é, uai!</h3>
             <p>Seja bem-vindo. Eu sou o Luquinhas, contribuidor do Google Maps e apaixonado por comida. Cansei de gourmetização e resenha comprada. Aqui você vai encontrar papo reto sobre onde vale a pena gastar o seu dinheiro (e o seu estômago).</p>
         </section>
 
         <div id="lista-posts">
 
             <article class="post" data-nota="8.5" data-data="2026-03-25">
-                <span class="post-categoria cat-sucesso">De lamber os beiços</span>
+                <div class="post-header">
+                    <span class="post-categoria cat-alerta">Dá pra comer (7-8)</span>
+                    <span class="nota">8.5 / 10</span>
+                </div>
                 <h2>Ital'in House - Brusque</h2>
-                <div class="post-meta">Local: Centro, Brusque - SC</div>
-                <p>Fui surpreendido positivamente! Pedi um risoto e um talharim e ambas as porções são muito bem servidas, generosas, preço justo e deliciosas! Chegou muito rápido na minha casa e bem quentinho ainda! Pedi um tiramisu de sobremesa e não curti...</p>
-                <div class="nota">Nota da experiência: 8.5/10</div>
+                <div class="post-meta">Centro, Brusque - SC | 1 semana atrás</div>
+                <p>Fui surpreendido positivamente! Pedi um risoto e um talharim e ambas as porções são muito bem servidas, generosas, preço justo e deliciosas! Chegou muito rápido na minha casa e bem quentinho ainda!</p>
+                <div class="nota-experiencia">
+                    <p>Avaliação Geral: O risoto e talharim valem d+, quentinhos e bem servidos! Tiramisu não curti.</p>
+                </div>
             </article>
 
             <article class="post" data-nota="10.0" data-data="2026-03-01">
-                <span class="post-categoria cat-sucesso">De lamber os beiços</span>
+                <div class="post-header">
+                    <span class="post-categoria cat-sucesso">Lamber os beiços (9+)</span>
+                    <span class="nota">10 / 10</span>
+                </div>
                 <h2>Pizzaria Lá Bella</h2>
-                <div class="post-meta">Local: Primeiro de Maio, Brusque - SC</div>
-                <p>Confesso que fiz o pedido sem muito otimismo, mas fui surpreendido de maneira muito positiva. O atendimento é ótimo. A pizza é maravilhosa! A borda de requeijão é extremamente recheada, tanto quanto a pizza em si. A de costela é sem dúvidas a melhor da cidade!</p>
-                <div class="nota">Nota da experiência: 10/10 (Comida: 5 | Serviço: 5 | Ambiente: 5)</div>
-            </article>
-
-            <article class="post" data-nota="8.0" data-data="2026-02-01">
-                <span class="post-categoria cat-alerta">Pra comer rezando (ou chorando)</span>
-                <h2>Boutique do Pão de Ló</h2>
-                <div class="post-meta">Local: Centro 1, Brusque - SC</div>
-                <p>O local é fantástico e a decoração sofisticada. Variedade vasta de produtos. Achei o preço dos bolos meio "salgados" pelos tamanhos, mas às vezes deva ser que meu bolso não acompanhe o padrão do local, hehe... De toda forma, recomendo demais a visita!</p>
-                <div class="nota">Nota da experiência: 8.0/10</div>
-            </article>
-
-            <article class="post" data-nota="10.0" data-data="2026-01-01">
-                <span class="post-categoria cat-sucesso">De lamber os beiços</span>
-                <h2>DOSS Local Pizza Shop</h2>
-                <div class="post-meta">Local: Centro 1, Brusque - SC</div>
-                <p>É sem dúvidas uma das melhores casas gastronômicas de Brusque! Ambiente despojado, rústico, intimista, sensacional... Os produtos são divinos. A proposta de comer com as mãos é fantástica! A Campione é a "campeã" do meu coração.</p>
-                <div class="nota">Nota da experiência: 10/10 (Comida: 5 | Serviço: 5 | Ambiente: 5)</div>
-            </article>
-
-            <article class="post" data-nota="9.5" data-data="2026-01-01">
-                <span class="post-categoria cat-sucesso">De lamber os beiços</span>
-                <h2>Praia da Vila Bar</h2>
-                <div class="post-meta">Local: Centro, Imbituba - SC</div>
-                <p>O melhor bar de Imbituba! De frente pro marzão da Vila! Rústico, raiz, cosmopolitano! Atendimento acolhedor, às vezes vem uns brutucos te atender, mas assim que é bom! Melhores pastéis, melhor casquinha de siri. Eu queria morar aqui!</p>
-                <div class="nota">Nota da experiência: 9.5/10</div>
-            </article>
-
-            <article class="post" data-nota="9.0" data-data="2025-12-01">
-                <span class="post-categoria cat-sucesso">De lamber os beiços</span>
-                <h2>Pizza para você Brusque</h2>
-                <div class="post-meta">Local: São Pedro, Brusque - SC</div>
-                <p>Me surpreendeu positivamente após eu ter lido tantos comentários negativos. Pelo valor das pizzas (30 reais) elas estavam bem gostosas. Massa fininha e bem recheada. Somente a de 4 queijos eu achei meio enjoativa, mas o restante estava muito bom.</p>
-                <div class="nota">Nota da experiência: 9.0/10</div>
-            </article>
-
-            <article class="post" data-nota="10.0" data-data="2025-10-01">
-                <span class="post-categoria cat-sucesso">De lamber os beiços</span>
-                <h2>DeepFourBlack Brusque OFICIAL</h2>
-                <div class="post-meta">Local: São Luiz, Brusque - SC</div>
-                <p>Sem dúvidas, um dos melhores estabelecimentos de Brusque... Ambiente bem descolado, confortável... Todos os hambúrgueres são divinos, destaque para a porção de bolinho de queijo gouda que é sensacional, a melhor de todas!</p>
-                <div class="nota">Nota da experiência: 10/10 (Comida: 5 | Serviço: 5 | Ambiente: 5)</div>
-            </article>
-
-            <article class="post" data-nota="10.0" data-data="2025-09-01">
-                <span class="post-categoria cat-sucesso">De lamber os beiços</span>
-                <h2>Café Chaminé Delícias do Amazonas</h2>
-                <div class="post-meta">Local: Centro 1, Brusque - SC</div>
-                <p>Amei o lugar. Atendimento cordial, a dona é uma simpatia em pessoa. Tudo limpo e organizado. O tucumã é uma ótima descoberta... Já comi tapioca, cuscuz e o Xis Caboclinho. A meta é zerar o cardápio kkkk. Recomendo d+++!</p>
-                <div class="nota">Nota da experiência: 10/10</div>
-            </article>
-
-            <article class="post" data-nota="8.5" data-data="2025-01-05">
-                <span class="post-categoria cat-alerta">Pra comer rezando (ou chorando)</span>
-                <h2>Upper Burger | Hamburgueria</h2>
-                <div class="post-meta">Local: Centro 1, Brusque - SC</div>
-                <p>Os garçons foram bem atenciosos, mas a recepcionista parecia não estar muito a fim de trabalhar naquele dia. Os petiscos e hambúrgueres estavam divinos. A única ressalva vai para o preço, achei meio caro pelos tamanhos.</p>
-                <div class="nota">Nota da experiência: 8.5/10</div>
-            </article>
-
-            <article class="post" data-nota="9.5" data-data="2025-04-01">
-                <span class="post-categoria cat-sucesso">De lamber os beiços</span>
-                <h2>Alexandria Burger Brusque</h2>
-                <div class="post-meta">Local: Centro 1, Brusque - SC</div>
-                <p>É sem dúvidas um dos melhores estabelecimentos de Brusque! Os hambúrgueres são deliciosos, destaque para o "El Patron" e os aperitivos são maravilhosos idem! O atendimento é impecável.</p>
-                <div class="nota">Nota da experiência: 9.5/10</div>
-            </article>
-
-            <article class="post" data-nota="7.5" data-data="2025-04-01">
-                <span class="post-categoria cat-alerta">Pra comer rezando (ou chorando)</span>
-                <h2>Empório Zimbeer</h2>
-                <div class="post-meta">Local: Centro, Imbituba - SC</div>
-                <p>Fomos nesse pub, que é sensacional! Experimentamos praticamente todos os petiscos que são muito bons, cerveja IPA gelada tudo certo! Nossa única ressalva é pra cobrança do couvert, 10 reais por cabeça é um assalto! Fora isso, recomendo!</p>
-                <div class="nota">Nota da experiência: 7.5/10</div>
+                <div class="post-meta">Primeiro de Maio, Brusque - SC | 1 mês atrás</div>
+                <p>Fui surpreendido de maneira muito positiva. Atendimento ótimo, desde o primeiro contato até a retirada. A pizza de costela é sem dúvidas a melhor da cidade e a portuguesa não fica para trás!</p>
+                <div class="nota-experiencia">
+                    <p>Avaliação Geral: Pizza maravilhosa! Costela é campeã! Comida: 5, Serviço: 5, Ambiente: 5.</p>
+                </div>
             </article>
 
             <article class="post" data-nota="3.0" data-data="2024-04-01">
-                <span class="post-categoria cat-perigo">Engolindo sapo</span>
+                <div class="post-header">
+                    <span class="post-categoria cat-perigo">Nossinhora, furada! (<7)</span>
+                    <span class="nota">3.0 / 10</span>
+                </div>
                 <h2>HOUSEBAR</h2>
-                <div class="post-meta">Local: Azambuja, Brusque - SC</div>
-                <p>Prepara-se para comer muito arroz! No temaki, uramaki, niguiris... é uma apoteose de arroz com recheios pífios de peixe. Achei os sushimans um pouco despreparados. Se você estiver com muita fome e pouco dinheiro eu recomendo, mas em outra situação não.</p>
-                <div class="nota">Nota da experiência: 3.0/10 (Comida: 2 | Serviço: 4 | Ambiente: 3)</div>
-            </article>
-
-            <article class="post" data-nota="10.0" data-data="2024-04-01">
-                <span class="post-categoria cat-sucesso">De lamber os beiços</span>
-                <h2>Restaurante Nayme Culinária Árabe</h2>
-                <div class="post-meta">Local: Batel, Curitiba - PR</div>
-                <p>Sou pobre financeiramente, mas de vez em quando me aventuro em restaurantes chiques kkk. Saí de lá extremamente satisfeito! Os pratos chegaram muito rápido e todos maravilhosamente saborosos! Meu jantar foi perfeito, recomendo!</p>
-                <div class="nota">Nota da experiência: 10/10</div>
-            </article>
-
-            <article class="post" data-nota="9.0" data-data="2024-04-01">
-                <span class="post-categoria cat-sucesso">De lamber os beiços</span>
-                <h2>Camaleão Burgers</h2>
-                <div class="post-meta">Local: Santa Terezinha, Brusque - SC</div>
-                <p>Gostamos bastante. O hambúrguer é muito bom, as bebidas geladas e servem negroni, fato raro na cidade. E lá o hambúrguer é servido do jeito que tem que ser, sem frescurinha de garfo e faca!</p>
-                <div class="nota">Nota da experiência: 9.0/10</div>
-            </article>
-
-            <article class="post" data-nota="2.0" data-data="2023-04-01">
-                <span class="post-categoria cat-perigo">Engolindo sapo</span>
-                <h2>Keep Rocking Pub</h2>
-                <div class="post-meta">Local: Centro 1, Brusque - SC</div>
-                <p>Um local, auto denominado pub, que não abre no fim de semana... Só em Brusque mesmo aheuasheuahsueaseaseas</p>
-                <div class="nota">Nota da experiência: 2.0/10 (Pela indignação do horário)</div>
-            </article>
-
-            <article class="post" data-nota="5.0" data-data="2023-04-01">
-                <span class="post-categoria cat-alerta">Pra comer rezando (ou chorando)</span>
-                <h2>Hi Dogz Pizza Burger</h2>
-                <div class="post-meta">Local: Souza Cruz, Brusque - SC</div>
-                <p>Não gostei da proposta de ter que levantar para pagar e buscar tudo. Sobre a pizza, achamos bem mais ou menos... Massa estranha, meio borrachuda e o Doritos estava murcho e duro. O ponto alto foi o atendimento de todos os funcionários.</p>
-                <div class="nota">Nota da experiência: 5.0/10</div>
-            </article>
-
-            <article class="post" data-nota="1.0" data-data="2023-04-01">
-                <span class="post-categoria cat-perigo">Engolindo sapo</span>
-                <h2>Balbúrdia Cervejeira Itajaí</h2>
-                <div class="post-meta">Local: Fazenda, Itajaí - SC</div>
-                <p>Eu sinceramente não entendi a proposta do local... Você tem que se levantar para tudo, carregar cartão antes de comer, e ainda não tinha as carnes que queríamos. Banheiro fica há uns 400 km de distância. Saí de lá totalmente frustrado.</p>
-                <div class="nota">Nota da experiência: 1.0/10</div>
-            </article>
-
-            <article class="post" data-nota="9.0" data-data="2023-04-01">
-                <span class="post-categoria cat-sucesso">De lamber os beiços</span>
-                <h2>La Notte Bar & Cozinha</h2>
-                <div class="post-meta">Local: Centro 1, Brusque - SC</div>
-                <p>O lugar é sensacional! Excelente atendimento. Ambiente com decoração primorosa, drinks magistrais e comida feita com qualidade total! A única observação é a falta de acessibilidade e os preços elevados.</p>
-                <div class="nota">Nota da experiência: 9.0/10</div>
-            </article>
-
-            <article class="post" data-nota="10.0" data-data="2023-04-01">
-                <span class="post-categoria cat-sucesso">De lamber os beiços</span>
-                <h2>Jost Burger</h2>
-                <div class="post-meta">Local: Centro 1, Brusque - SC</div>
-                <p>Melhor hamburgueria da cidade! Batata frita parece a do Mac, cebola frita também é top! Caipirinha show, chopp gelado e qualquer hambúrguer é muito bom, pode pedir sem medo!</p>
-                <div class="nota">Nota da experiência: 10/10</div>
-            </article>
-
-            <article class="post" data-nota="4.0" data-data="2023-04-01">
-                <span class="post-categoria cat-perigo">Engolindo sapo</span>
-                <h2>Tsurus</h2>
-                <div class="post-meta">Local: Santa Rita, Brusque - SC</div>
-                <p>Não é isso tudo que falam... É caro só pra selecionar a galera mesmo... Peças limitadas, ambiente pequeno, estacionamento inexistente e bebidas de preço exorbitante... Só pra nata mesmo...</p>
-                <div class="nota">Nota da experiência: 4.0/10</div>
-            </article>
-
-            <article class="post" data-nota="2.0" data-data="2023-04-01">
-                <span class="post-categoria cat-perigo">Engolindo sapo</span>
-                <h2>Nippon</h2>
-                <div class="post-meta">Local: São Luiz, Brusque - SC</div>
-                <p>Os pratos são até gostosos, mas o atendimento deve ser o pior da cidade... Demora umas 4 horas pra chegar os pedidos e eles nunca vêm do jeito que você pediu. Som alto demais que impede a conversa.</p>
-                <div class="nota">Nota da experiência: 2.0/10</div>
-            </article>
-
-            <article class="post" data-nota="10.0" data-data="2023-04-01">
-                <span class="post-categoria cat-sucesso">De lamber os beiços</span>
-                <h2>MATRYOSHKA Sabores do Leste Europeu</h2>
-                <div class="post-meta">Local: Centro, Florianópolis - SC</div>
-                <p>Surpreendente experiência no centro de Floripa. Tudo perfeito. A sobremesa Praça Vermelha foi a melhor que já comemos na vida! A única ressalva é que o local é minúsculo, então chegue cedo!</p>
-                <div class="nota">Nota da experiência: 10/10</div>
-            </article>
-
-            <article class="post" data-nota="7.5" data-data="2023-04-01">
-                <span class="post-categoria cat-alerta">Pra comer rezando (ou chorando)</span>
-                <h2>No Class</h2>
-                <div class="post-meta">Local: Centro, Florianópolis - SC</div>
-                <p>Os drinks que pedimos estavam fantásticos! O local tem um toque bem intimista e hi-tech. Minha única ressalva são para as porções, que não são o forte da casa, além de caras.</p>
-                <div class="nota">Nota da experiência: 7.5/10</div>
+                <div class="post-meta">Azambuja, Brusque - SC | 2 anos atrás</div>
+                <p>Prepara-se para comer muito arroz! É uma apoteose de arroz com recheios pífios de peixe. Se vc estiver com muita fome e pouco dinheiro eu recomendo, mas em outra situação não.</p>
+                <div class="nota-experiencia">
+                    <p>Avaliação Geral: SushiMASTERCHEF? Não espere Masterchef pelo preço. Comida: 2, Serviço: 4, Ambiente: 3.</p>
+                </div>
             </article>
 
         </div>
@@ -355,7 +256,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 Comendo com o Luquinhas. Feito com fome e muita sinceridade.</p>
+        <p>&copy; 2026 Comendo com o Luquinhas. Feito com fome e muita sinceridade, uai.</p>
     </footer>
 
     <script>
@@ -370,12 +271,12 @@
                 
                 if (tipo === 'todos') {
                     post.style.display = 'block';
-                } else if (tipo === 'alta' && nota >= 8.0) {
+                } else if (tipo === 'alta' && nota >= 9.0) {
+                    post.style.display = 'block';
+                } else if (tipo === 'media' && nota >= 7.0 && nota < 9.0) {
                     post.style.display = 'block';
                 } else if (tipo === 'baixa' && nota < 7.0) {
                     post.style.display = 'block';
-                } else if (tipo === 'alerta' && nota >= 7.0 && nota < 8.0) {
-                    post.style.display = 'none'; 
                 } else {
                     post.style.display = 'none';
                 }
