@@ -143,32 +143,40 @@
             margin-bottom: 1.2rem;
         }
 
-        /* Mecanismo de Saiba Mais (Mineiro) */
-        .resenha-completa {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-out;
-            line-height: 1.7;
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
+        /* Mecanismo Nativo de Saiba Mais (Mineiro) */
+        details {
+            margin-bottom: 1.5rem;
         }
 
-        .btn-espia {
+        summary {
             background-color: var(--cor-secundaria);
             color: var(--cor-texto);
-            border: none;
             padding: 0.6rem 1.2rem;
             border-radius: 8px;
             font-weight: bold;
             cursor: pointer;
             font-family: 'Georgia', serif;
             transition: background-color 0.2s;
-            margin-bottom: 1rem;
             display: inline-block;
+            list-style: none; /* Esconde a setinha padrão no Chrome/Firefox */
         }
 
-        .btn-espia:hover {
+        summary::-webkit-details-marker {
+            display: none; /* Esconde a setinha padrão no Safari */
+        }
+
+        summary:hover {
             background-color: var(--cor-hover);
+        }
+
+        .resenha-texto {
+            margin-top: 1rem;
+            line-height: 1.7;
+            font-size: 1.1rem;
+            padding: 1rem;
+            background-color: #fffefb;
+            border-radius: 8px;
+            border: 1px solid #f2e6cf;
         }
 
         .nota-experiencia {
@@ -234,10 +242,12 @@
                 <h2>Ital'in House - Brusque - Centro</h2>
                 <div class="post-meta">R. Ver. Guilherme Niebuhr, 2 - salas 3 e 4 | 1 semana atrás</div>
                 
-                <button class="btn-espia" onclick="toggleResenha(this)">Espia a resenha completa</button>
-                <div class="resenha-completa">
-                    Fui surpreendido positivamente! Pedi um risoto e um talharim e ambas as porções são muito bem servidas, generosas, preço justo e deliciosas! Chegou muito rápido na minha casa e bem quentinho ainda! Pedi um tiramisu de sobremesa e não curti …
-                </div>
+                <details>
+                    <summary>Espia a resenha completa</summary>
+                    <div class="resenha-texto">
+                        Fui surpreendido positivamente! Pedi um risoto e um talharim e ambas as porções são muito bem servidas, generosas, preço justo e deliciosas! Chegou muito rápido na minha casa e bem quentinho ainda! Pedi um tiramisu de sobremesa e não curti …
+                    </div>
+                </details>
 
                 <div class="nota-experiencia"><p>Avaliação do Luquinhas: Risoto e talharim valem d+, mas o doce deixou a desejar.</p></div>
             </article>
@@ -250,11 +260,13 @@
                 <h2>PIZZARIA LÁ BELLA</h2>
                 <div class="post-meta">R. Florianópolis, 795 - Primeiro de Maio | 1 mês atrás</div>
                 
-                <button class="btn-espia" onclick="toggleResenha(this)">Espia a resenha completa</button>
-                <div class="resenha-completa">
-                    Confesso que fiz o pedido sem muito otimismo, mas fui surpreendido de maneira muito positiva. O atimento é ótimo, desde o primeiro contato até a retirada, a moça que me atendeu é muito cordial e simpática. O pedido ficou pronto extremamente rápido e a pizza é maravilhosa! A borda de requeijão é extremamente recheada, tanto quanto pizza em si. A de costela é sem dúvidas a melhor da cidade e a portuguesa não fica para trás! Com certeza irei pedir + vezes!<br><br>
-                    Comida: 5 | Serviço: 5 | Ambiente: 5
-                </div>
+                <details>
+                    <summary>Espia a resenha completa</summary>
+                    <div class="resenha-texto">
+                        Confesso que fiz o pedido sem muito otimismo, mas fui surpreendido de maneira muito positiva. O atimento é ótimo, desde o primeiro contato até a retirada, a moça que me atendeu é muito cordial e simpática. O pedido ficou pronto extremamente rápido e a pizza é maravilhosa! A borda de requeijão é extremamente recheada, tanto quanto pizza em si. A de costela é sem dúvidas a melhor da cidade e a portuguesa não fica para trás! Com certeza irei pedir + vezes!<br><br>
+                        Comida: 5 | Serviço: 5 | Ambiente: 5
+                    </div>
+                </details>
 
                 <div class="nota-experiencia"><p>Avaliação do Luquinhas: Costela campeã! Atendimento nota 1000.</p></div>
             </article>
@@ -267,10 +279,12 @@
                 <h2>Boutique do Pão de Ló Brusque</h2>
                 <div class="post-meta">R. Paes Leme, 122 - Centro 1 | 2 meses atrás</div>
                 
-                <button class="btn-espia" onclick="toggleResenha(this)">Espia a resenha completa</button>
-                <div class="resenha-completa">
-                    Eu achei o local fantástico! A decoração foi muito bem feita. Tudo lindo, sofistisado e arrojado. O atendimento é quase majoritário de meninas e todas muito bem educadas e cordiais. Fui muito atendido desde a entrada até a saída. Tem estacionamento na porta e a variedade de produtos é vasta. Tem pra todo gosto, bolos, cheesecakes, capuccinos, cafés gelados, chás, sanduíches e por ai vai... Achei o preço dos bolos meio "salgados" pelos tamanhos, mas as vezes deva ser que meu bolso não acompanhe o padrão do local, hehe... De toda forma, recomendo d+ a visita!
-                </div>
+                <details>
+                    <summary>Espia a resenha completa</summary>
+                    <div class="resenha-texto">
+                        Eu achei o local fantástico! A decoração foi muito bem feita. Tudo lindo, sofistisado e arrojado. O atendimento é quase majoritário de meninas e todas muito bem educadas e cordiais. Fui muito atendido desde a entrada até a saída. Tem estacionamento na porta e a variedade de produtos é vasta. Tem pra todo gosto, bolos, cheesecakes, capuccinos, cafés gelados, chás, sanduíches e por ai vai... Achei o preço dos bolos meio "salgados" pelos tamanhos, mas as vezes deva ser que meu bolso não acompanhe o padrão do local, hehe... De toda forma, recomendo d+ a visita!
+                    </div>
+                </details>
 
                 <div class="nota-experiencia"><p>Avaliação do Luquinhas: Ambiente lindo e atendimento ótimo, mas prepara o bolso para os bolos.</p></div>
             </article>
@@ -283,11 +297,13 @@
                 <h2>DOSS Local Pizza Shop</h2>
                 <div class="post-meta">R. João Bauer, 245 - Centro 1 | 3 meses atrás</div>
                 
-                <button class="btn-espia" onclick="toggleResenha(this)">Espia a resenha completa</button>
-                <div class="resenha-completa">
-                    É sem dúvidas uma das melhores casas gastronômicas de Brusque! Ambiente despojado, rústico, intimista, sensacional... O atendimento é impecável... Tanto o realizado pelos donos, quanto dos funcionários... Os produtos oferecidos então, são divinos... Desde os pães, as entradas e as pizzas, que são obras de arte... A proposta de comer com as mãos é fantástica! Tô tentando zerar o cardápio, mas a Campione é a "campeã" do meu coração... Recomendo elevado ao quadrado!<br><br>
-                    Comida: 5 | Serviço: 5 | Ambiente: 5
-                </div>
+                <details>
+                    <summary>Espia a resenha completa</summary>
+                    <div class="resenha-texto">
+                        É sem dúvidas uma das melhores casas gastronômicas de Brusque! Ambiente despojado, rústico, intimista, sensacional... O atendimento é impecável... Tanto o realizado pelos donos, quanto dos funcionários... Os produtos oferecidos então, são divinos... Desde os pães, as entradas e as pizzas, que são obras de arte... A proposta de comer com as mãos é fantástica! Tô tentando zerar o cardápio, mas a Campione é a "campeã" do meu coração... Recomendo elevado ao quadrado!<br><br>
+                        Comida: 5 | Serviço: 5 | Ambiente: 5
+                    </div>
+                </details>
 
                 <div class="nota-experiencia"><p>Avaliação do Luquinhas: Pizzas que são obras de arte. Comer com as mãos é show.</p></div>
             </article>
@@ -300,11 +316,13 @@
                 <h2>Praia da Vila Bar</h2>
                 <div class="post-meta">Av. Manoel Florentino Machado - Imbituba | 3 meses atrás</div>
                 
-                <button class="btn-espia" onclick="toggleResenha(this)">Espia a resenha completa</button>
-                <div class="resenha-completa">
-                    O melhor bar de Imbituba! De frente pro marzão da Vila! Rústico, raiz, cosmopolitano! Atendimento acolhedor,as vezes vem uns brutuco te atender, mas assim que é bom! Pra não deixar o cliente muito mal acostumado! Porções deliciosas, as vezes um pouco gordurosas, mas nada que um Eno, Epocler e um Domperidona não resolvam! Melhor Chopp Ipa da cidade, Melhor Caipirinha da história da humanidade! Melhores pastéis, melhor casquinha de siri e a melhor porção de mandioca já feita! Sábado a tarde rola show de pagode! Eu queria morar aqui!<br><br>
-                    Comida: 5 | Serviço: 5 | Ambiente: 5
-                </div>
+                <details>
+                    <summary>Espia a resenha completa</summary>
+                    <div class="resenha-texto">
+                        O melhor bar de Imbituba! De frente pro marzão da Vila! Rústico, raiz, cosmopolitano! Atendimento acolhedor,as vezes vem uns brutuco te atender, mas assim que é bom! Pra não deixar o cliente muito mal acostumado! Porções deliciosas, as vezes um pouco gordurosas, mas nada que um Eno, Epocler e um Domperidona não resolvam! Melhor Chopp Ipa da cidade, Melhor Caipirinha da história da humanidade! Melhores pastéis, melhor casquinha de siri e a melhor porção de mandioca já feita! Sábado a tarde rola show de pagode! Eu queria morar aqui!<br><br>
+                        Comida: 5 | Serviço: 5 | Ambiente: 5
+                    </div>
+                </details>
 
                 <div class="nota-experiencia"><p>Avaliação do Luquinhas: Um paraíso rústico com as melhores porções e drinks. Queria morar lá.</p></div>
             </article>
@@ -317,11 +335,13 @@
                 <h2>Pizza para você Brusque</h2>
                 <div class="post-meta">R. São Leopoldo, 202 - São Pedro | 4 meses atrás</div>
                 
-                <button class="btn-espia" onclick="toggleResenha(this)">Espia a resenha completa</button>
-                <div class="resenha-completa">
-                    A pizzaria me supreendeu positivamente após eu ter lido tantos comentários negativos. O APP deles é bem intuitivo e fácil de navegar e o atendimento via whatspp também é muito ágil e eficaz. Como moro + ou menos perto da pizzaria, resolvi pedir pra retirar, visto que tinha lido muitos comentários ruins sobre a demora da entrega. Em 15 minutos já mandaram mensagem falando que o pedido estava pronto. Ao chegar no local, fui muito bem atendido pela moça do caixa e chegando em casa veio a surpresa positiva. Pelo valor das pizzas(30 reais) elas estavam bem gostosas. Massa fininha e bem recheada. Somente a de 4 queijos eu achei meio enjoativa, mas a de lombinho com cheddar, frango com catupiry e destaque para a portuguesa estavam muito boas mesmo. Qualquer dia vou pedir pelo delivery, pra ver se demora mesmo kkkkkk. Enfim, de toda forma, recomenda a pedida!<br><br>
-                    Comida: 5 | Serviço: 5 | Ambiente: 4
-                </div>
+                <details>
+                    <summary>Espia a resenha completa</summary>
+                    <div class="resenha-texto">
+                        A pizzaria me supreendeu positivamente após eu ter lido tantos comentários negativos. O APP deles é bem intuitivo e fácil de navegar e o atendimento via whatspp também é muito ágil e eficaz. Como moro + ou menos perto da pizzaria, resolvi pedir pra retirar, visto que tinha lido muitos comentários ruins sobre a demora da entrega. Em 15 minutos já mandaram mensagem falando que o pedido estava pronto. Ao chegar no local, fui muito bem atendido pela moça do caixa e chegando em casa veio a surpresa positiva. Pelo valor das pizzas(30 reais) elas estavam bem gostosas. Massa fininha e bem recheada. Somente a de 4 queijos eu achei meio enjoativa, mas a de lombinho com cheddar, frango com catupiry e destaque para a portuguesa estavam muito boas mesmo. Qualquer dia vou pedir pelo delivery, pra ver se demora mesmo kkkkkk. Enfim, de toda forma, recomenda a pedida!<br><br>
+                        Comida: 5 | Serviço: 5 | Ambiente: 4
+                    </div>
+                </details>
 
                 <div class="nota-experiencia"><p>Avaliação do Luquinhas: Por 30 reais, vale muito a pena. Massa fina e bem recheada.</p></div>
             </article>
@@ -334,11 +354,13 @@
                 <h2>DeepFourBlack Brusque OFICIAL</h2>
                 <div class="post-meta">R. Benjamin Constant, 26 - São Luiz | 6 meses atrás</div>
                 
-                <button class="btn-espia" onclick="toggleResenha(this)">Espia a resenha completa</button>
-                <div class="resenha-completa">
-                    Sem dúvidas, um dos melhores estabelecimentos de Brusque... Ambiente bem descolado, confortável... Todos os colaboradores atendem muito bem, independente do dia que você vai... Tem uma sinuquinha marota de graça pra jogar, todos os hamburgueres são divinos, destaque para a porção de bolinho de queijo gouda é sensacional, a melhor de todas! Todo dia, até as 20:00hs tem happy hour, com porções com excelentes descontos e chopp e caipirinha por metade do preço! Eu simplesmente amo o lugar, recomendod++!<br><br>
-                    Comida: 5 | Serviço: 5 | Ambiente: 5
-                </div>
+                <details>
+                    <summary>Espia a resenha completa</summary>
+                    <div class="resenha-texto">
+                        Sem dúvidas, um dos melhores estabelecimentos de Brusque... Ambiente bem descolado, confortável... Todos os colaboradores atendem muito bem, independente do dia que você vai... Tem uma sinuquinha marota de graça pra jogar, todos os hamburgueres são divinos, destaque para a porção de bolinho de queijo gouda é sensacional, a melhor de todas! Todo dia, até as 20:00hs tem happy hour, com porções com excelentes descontos e chopp e caipirinha por metade do preço! Eu simplesmente amo o lugar, recomendod++!<br><br>
+                        Comida: 5 | Serviço: 5 | Ambiente: 5
+                    </div>
+                </details>
 
                 <div class="nota-experiencia"><p>Avaliação do Luquinhas: Bolinho de queijo gouda perfeito e sinuquinha de graça.</p></div>
             </article>
@@ -351,11 +373,13 @@
                 <h2>Café Chaminé Delícias do Amazonas</h2>
                 <div class="post-meta">R. Afonso Pena, 56 - Centro 1 | 7 meses atrás</div>
                 
-                <button class="btn-espia" onclick="toggleResenha(this)">Espia a resenha completa</button>
-                <div class="resenha-completa">
-                    Não sou manauara, mas amo experimentar comidas de outras regiões do país... Amei o lugar. Atendimento cordial, a dona é uma simpatia em pessoa. Tudo limpo e organizado. Tem café à vontade. O tucumã é uma ótima descoberta... Já comi tapioca, cuzcuz e o Xis Caboclinho. A meta é zerar o cardápio kkkk. Um dos poucos lugares em Brusque que abre dia de domingo pra tomar uma café delicoso e sem pressa... Recomendo d+++!<br><br>
-                    Comida: 5 | Serviço: 5 | Ambiente: 5
-                </div>
+                <details>
+                    <summary>Espia a resenha completa</summary>
+                    <div class="resenha-texto">
+                        Não sou manauara, mas amo experimentar comidas de outras regiões do país... Amei o lugar. Atendimento cordial, a dona é uma simpatia em pessoa. Tudo limpo e organizado. Tem café à vontade. O tucumã é uma ótima descoberta... Já comi tapioca, cuzcuz e o Xis Caboclinho. A meta é zerar o cardápio kkkk. Um dos poucos lugares em Brusque que abre dia de domingo pra tomar uma café delicoso e sem pressa... Recomendo d+++!<br><br>
+                        Comida: 5 | Serviço: 5 | Ambiente: 5
+                    </div>
+                </details>
 
                 <div class="nota-experiencia"><p>Avaliação do Luquinhas: O tucumã foi uma ótima descoberta. Atendimento nota mil.</p></div>
             </article>
@@ -368,11 +392,13 @@
                 <h2>Upper Burger | Hamburgueria</h2>
                 <div class="post-meta">R. Paes Leme, 85 - Centro 1 | 1 ano atrás</div>
                 
-                <button class="btn-espia" onclick="toggleResenha(this)">Espia a resenha completa</button>
-                <div class="resenha-completa">
-                    Fui dia 05/01/25 e pedimos porções a lacarte. O ambiente é ok, nada d+. Estava limpo e é bem arejado. Tem várias opções de drinks e chopps, inclusive IPA. Os garçons foram bem atenciosos, mas a recepcionista estava um pouco com a cara fechada, parecia não estar muito a fim de trabalhar naquele dia, kkkk. Pedimos porções de queijo gouda e crocete de cebola queestavam divinos. A batata frita estava bem gostosa também acompanhada de uma maionese temperada bem boa. O hamburguer estava muito gostoso também, suculento e no ponto certo. A unica ressalva minha vai para o preço. Achei meio caro pelos tamanhos, mas como o ponto é no centro, o aluguel deve ser bem caro então acaba impactando no preço, ou talvez seja mais vantajoso pra eles as opções de rodízio. De toda forma recomendo a visita!<br><br>
-                    Comida: 5 | Serviço: 4 | Ambiente: 5
-                </div>
+                <details>
+                    <summary>Espia a resenha completa</summary>
+                    <div class="resenha-texto">
+                        Fui dia 05/01/25 e pedimos porções a lacarte. O ambiente é ok, nada d+. Estava limpo e é bem arejado. Tem várias opções de drinks e chopps, inclusive IPA. Os garçons foram bem atenciosos, mas a recepcionista estava um pouco com a cara fechada, parecia não estar muito a fim de trabalhar naquele dia, kkkk. Pedimos porções de queijo gouda e crocete de cebola queestavam divinos. A batata frita estava bem gostosa também acompanhada de uma maionese temperada bem boa. O hamburguer estava muito gostoso também, suculento e no ponto certo. A unica ressalva minha vai para o preço. Achei meio caro pelos tamanhos, mas como o ponto é no centro, o aluguel deve ser bem caro então acaba impactando no preço, ou talvez seja mais vantajoso pra eles as opções de rodízio. De toda forma recomendo a visita!<br><br>
+                        Comida: 5 | Serviço: 4 | Ambiente: 5
+                    </div>
+                </details>
 
                 <div class="nota-experiencia"><p>Avaliação do Luquinhas: Hambúrguer suculento, mas os preços das porções são salgados.</p></div>
             </article>
@@ -385,10 +411,12 @@
                 <h2>Alexandria Burger Brusque</h2>
                 <div class="post-meta">R. João Bauer, 260 - Centro 1 | 1 ano atrás</div>
                 
-                <button class="btn-espia" onclick="toggleResenha(this)">Espia a resenha completa</button>
-                <div class="resenha-completa">
-                    É sem dúvidas um dos melhores estabelecimentos de Brusque! Os hambúrgueres são deliciosos, destaque para o "El Patron" e os aperitivos são maravilhosos idem! O atendimento é impecável, feito algumas vezes até pelos donos que são sempre …
-                </div>
+                <details>
+                    <summary>Espia a resenha completa</summary>
+                    <div class="resenha-texto">
+                        É sem dúvidas um dos melhores estabelecimentos de Brusque! Os hambúrgueres são deliciosos, destaque para o "El Patron" e os aperitivos são maravilhosos idem! O atendimento é impecável, feito algumas vezes até pelos donos que são sempre …
+                    </div>
+                </details>
 
                 <div class="nota-experiencia"><p>Avaliação do Luquinhas: Hambúrguer fantástico. "El Patron" é o destaque.</p></div>
             </article>
@@ -401,10 +429,12 @@
                 <h2>Empório Zimbeer</h2>
                 <div class="post-meta">R. Nereu Ramos, 916 - Centro, Imbituba | 1 ano atrás</div>
                 
-                <button class="btn-espia" onclick="toggleResenha(this)">Espia a resenha completa</button>
-                <div class="resenha-completa">
-                    Em viagem de férias por Imbituba, fomos nesse pub, que é sensacional! Experimentamos praticamente todos os petiscos que são muito bons, cerveja Ipa gelada tudo certo! Nossa única ressalva é pra cobrança do couver, 10 reais por cabeça é um assalto! Nem devia cobrar isso... Fora isso, recomendo d+!
-                </div>
+                <details>
+                    <summary>Espia a resenha completa</summary>
+                    <div class="resenha-texto">
+                        Em viagem de férias por Imbituba, fomos nesse pub, que é sensacional! Experimentamos praticamente todos os petiscos que são muito bons, cerveja Ipa gelada tudo certo! Nossa única ressalva é pra cobrança do couver, 10 reais por cabeça é um assalto! Nem devia cobrar isso... Fora isso, recomendo d+!
+                    </div>
+                </details>
 
                 <div class="nota-experiencia"><p>Avaliação do Luquinhas: Excelente pub de férias, mas a taxa de couvert é exagerada.</p></div>
             </article>
@@ -417,11 +447,13 @@
                 <h2>HOUSEBAR</h2>
                 <div class="post-meta">R. Azambuja, 26 - Azambuja | 2 anos atrás</div>
                 
-                <button class="btn-espia" onclick="toggleResenha(this)">Espia a resenha completa</button>
-                <div class="resenha-completa">
-                    Fui numa quarta feira e a atendente me informou que havia uma promoção do buffet por $49,90 e um "especial" por $69,90 que incluía sashimi e temaki. Optei por essa segunda opção. Bom, pelo valor(avaliação realizada em 2023) não se dá pra esperar um mastercheff do Érick Jacquin... Prepara-se para comer muito arroz! No temaki, uramaki, niguiris, hosomakis... é uma apoteose de arroz com recheios pífios de peixe, mas como disse, não da pra esperar muita coisa pelo preço. Achei os sushimans um pouco despreparados, quase todas peças que peguei desmancharam quando eu peguei com o hashi... No +, ao menos a moça que me atendeu foi bem simpática e o ambiente me pareceu limpo e organizado... Se vc estiver com muitaaaa fome e pouco dinheiro eu recomendo, mas em outra situação não... A nota vai pelo conjunto da obra!<br><br>
-                    Comida: 2 | Serviço: 4 | Ambiente: 3
-                </div>
+                <details>
+                    <summary>Espia a resenha completa</summary>
+                    <div class="resenha-texto">
+                        Fui numa quarta feira e a atendente me informou que havia uma promoção do buffet por $49,90 e um "especial" por $69,90 que incluía sashimi e temaki. Optei por essa segunda opção. Bom, pelo valor(avaliação realizada em 2023) não se dá pra esperar um mastercheff do Érick Jacquin... Prepara-se para comer muito arroz! No temaki, uramaki, niguiris, hosomakis... é uma apoteose de arroz com recheios pífios de peixe, mas como disse, não da pra esperar muita coisa pelo preço. Achei os sushimans um pouco despreparados, quase todas peças que peguei desmancharam quando eu peguei com o hashi... No +, ao menos a moça que me atendeu foi bem simpática e o ambiente me pareceu limpo e organizado... Se vc estiver com muitaaaa fome e pouco dinheiro eu recomendo, mas em outra situação não... A nota vai pelo conjunto da obra!<br><br>
+                        Comida: 2 | Serviço: 4 | Ambiente: 3
+                    </div>
+                </details>
 
                 <div class="nota-experiencia"><p>Avaliação do Luquinhas: Muita apoteose de arroz. Só vale se estiver quebrado e faminto.</p></div>
             </article>
@@ -434,11 +466,13 @@
                 <h2>Restaurante Nayme Culinária Árabe Curitiba</h2>
                 <div class="post-meta">R. Cel. Dulcídio, 572 - Batel, Curitiba | 2 anos atrás</div>
                 
-                <button class="btn-espia" onclick="toggleResenha(this)">Espia a resenha completa</button>
-                <div class="resenha-completa">
-                    Sou pobre financeiramente, mas de vez em quando, me aventuro em restaurantes chiques kkkkkkk... Em passagem por Curitiba, fui nesse restaurante árabe e sai de lá extremamente satisfeito! Fui muito bem atendimento por todos os funcionários do restaurante. Os pratos chegaram muito rápido e todos maravilhosamente saborosos! Pedimos um quibe cru, pasta de homus, qualhada, uma pasta com alho e zaatar, esfihas e uma esfiha com massa fininha que estava divina! Pra beber pedi m negroni que estava muito bom tbm! O único ruim é lugar pra estacionar, mas acho q esse é o mal de toda capital no Brasil, mas tirando isso, meu jantar foi perfeito, recomendo!<br><br>
-                    Comida: 5 | Serviço: 5 | Ambiente: 5
-                </div>
+                <details>
+                    <summary>Espia a resenha completa</summary>
+                    <div class="resenha-texto">
+                        Sou pobre financeiramente, mas de vez em quando, me aventuro em restaurantes chiques kkkkkkk... Em passagem por Curitiba, fui nesse restaurante árabe e sai de lá extremamente satisfeito! Fui muito bem atendimento por todos os funcionários do restaurante. Os pratos chegaram muito rápido e todos maravilhosamente saborosos! Pedimos um quibe cru, pasta de homus, qualhada, uma pasta com alho e zaatar, esfihas e uma esfiha com massa fininha que estava divina! Pra beber pedi m negroni que estava muito bom tbm! O único ruim é lugar pra estacionar, mas acho q esse é o mal de toda capital no Brasil, mas tirando isso, meu jantar foi perfeito, recomendo!<br><br>
+                        Comida: 5 | Serviço: 5 | Ambiente: 5
+                    </div>
+                </details>
 
                 <div class="nota-experiencia"><p>Avaliação do Luquinhas: Aventura em restaurante chique que valeu cada centavo.</p></div>
             </article>
@@ -451,10 +485,12 @@
                 <h2>Camaleão Burgers</h2>
                 <div class="post-meta">R. Dorval Luz, 267 - Santa Terezinha | 2 anos atrás</div>
                 
-                <button class="btn-espia" onclick="toggleResenha(this)">Espia a resenha completa</button>
-                <div class="resenha-completa">
-                    Fui ontem com minha esposa e gostamos bastante. O hambúrguer é muito bom, as bebidas geladas e servem negroni, fato raro na cidade. E lá o hambúrguer é servido do jeito q tem q ser, sem frescurinha de garfo e faca! O atendimento é …
-                </div>
+                <details>
+                    <summary>Espia a resenha completa</summary>
+                    <div class="resenha-texto">
+                        Fui ontem com minha esposa e gostamos bastante. O hambúrguer é muito bom, as bebidas geladas e servem negroni, fato raro na cidade. E lá o hambúrguer é servido do jeito q tem q ser, sem frescurinha de garfo e faca! O atendimento é …
+                    </div>
+                </details>
 
                 <div class="nota-experiencia"><p>Avaliação do Luquinhas: Hambúrguer bruto, sem frescura de garfo e faca. Excelente.</p></div>
             </article>
@@ -467,10 +503,12 @@
                 <h2>Keep Rocking Pub</h2>
                 <div class="post-meta">R. Hercílio Luz, 374 - Centro 1 | 3 anos atrás</div>
                 
-                <button class="btn-espia" onclick="toggleResenha(this)">Espia a resenha completa</button>
-                <div class="resenha-completa">
-                    Um local, auto denominado pub, que não abre no fim de semana... Só em Brusque mesmo aheuasheuahsueaseaseas
-                </div>
+                <details>
+                    <summary>Espia a resenha completa</summary>
+                    <div class="resenha-texto">
+                        Um local, auto denominado pub, que não abre no fim de semana... Só em Brusque mesmo aheuasheuahsueaseaseas
+                    </div>
+                </details>
 
                 <div class="nota-experiencia"><p>Avaliação do Luquinhas: Ideia na contramão: um pub que fecha no final de semana.</p></div>
             </article>
@@ -483,10 +521,12 @@
                 <h2>Hi Dogz Pizza Burger</h2>
                 <div class="post-meta">R. Bulcão Viana, 126 - Souza Cruz | 3 anos atrás</div>
                 
-                <button class="btn-espia" onclick="toggleResenha(this)">Espia a resenha completa</button>
-                <div class="resenha-completa">
-                    Bem, me indicaram o local e resolvi ir no ambiente físico do estabelecimento. Não gostei da proposta da casa da qual o cliente tem que já pagar o produto escolhido antes de qualquer coisa e ir no caixa. Aí, quando estiver pronto ir novamente e pegar no caixa. Eu gosto de praticidade, comodidade e conforto, não quero ir num lugar e ter q ficar levantando toda hora, pra pegar as coisas, mas enfim. A bebida vc pega em outro lugar e tem q ficar ir buscando tbm... No dia que fui a moça falou q não tinha caipirinha, mas vi cachaça e limão no balcão, senti meio q uma preguiça dela ou não querer fazer o drink, mas... enfim de novo... A casa oferece pizzas, hambúrgueres, porções pequenas e milk shakes... Minha esposa pegou um milk shake de paçoca e achou delicioso... Sobre a pizza, achamos bem mais ou menos... Massa estranha, meio borrachuda e a mexicana que pedimos o doritos estava murcho e duro... O ponto alto da noite é o atendimento de todos os funcionários, que foi nota mil e o ambiente que é muito bonito, despojado e bem decorado, muito lindo mesmo! Provavelmente voltaremos no local pra experimentar o hambúrguer, pois tudo merece uma segunda chance, mas a primeira visita não foi tão especial assim...
-                </div>
+                <details>
+                    <summary>Espia a resenha completa</summary>
+                    <div class="resenha-texto">
+                        Bem, me indicaram o local e resolvi ir no ambiente físico do estabelecimento. Não gostei da proposta da casa da qual o cliente tem que já pagar o produto escolhido antes de qualquer coisa e ir no caixa. Aí, quando estiver pronto ir novamente e pegar no caixa. Eu gosto de praticidade, comodidade e conforto, não quero ir num lugar e ter q ficar levantando toda hora, pra pegar as coisas, mas enfim. A bebida vc pega em outro lugar e tem q ficar ir buscando tbm... No dia que fui a moça falou q não tinha caipirinha, mas vi cachaça e limão no balcão, senti meio q uma preguiça dela ou não querer fazer o drink, mas... enfim de novo... A casa oferece pizzas, hambúrgueres, porções pequenas e milk shakes... Minha esposa pegou um milk shake de paçoca e achou delicioso... Sobre a pizza, achamos bem mais ou menos... Massa estranha, meio borrachuda e a mexicana que pedimos o doritos estava murcho e duro... O ponto alto da noite é o atendimento de todos os funcionários, que foi nota mil e o ambiente que é muito bonito, despojado e bem decorado, muito lindo mesmo! Provavelmente voltaremos no local pra experimentar o hambúrguer, pois tudo merece uma segunda chance, mas a primeira visita não foi tão especial assim...
+                    </div>
+                </details>
 
                 <div class="nota-experiencia"><p>Avaliação do Luquinhas: Ambiente lindo e atendimento ótimo, mas logística cansativa e pizza fraca.</p></div>
             </article>
@@ -499,10 +539,12 @@
                 <h2>Balbúrdia Cervejeira Itajaí</h2>
                 <div class="post-meta">R. Lauro Muller, 1267 - Itajaí | 3 anos atrás</div>
                 
-                <button class="btn-espia" onclick="toggleResenha(this)">Espia a resenha completa</button>
-                <div class="resenha-completa">
-                    Eu sinceramente não entendi a proposta do local... Ao chegarmos, antes mesmo de sentar na mesa já fomos orientados pelo garçom que era necessário ir ao caixa e fazer um cartão. Já fiquei bolado, mas tudo bem, fui lá. Após uma fila interminável, a moça do caixa pediu meus dados e fiz o cartão e pela minha total surpresa ela me disse era necessário pagar antes. Sim! Não é brincadeira minha, vc tem que fazer a conta certinha do que vc quer pedir e já pagar de antemão. Achei graça, mas como minha esposa estava com fome, acabamos por colocar uma "carga" no cartão. Quando eu fui sentar, o garçom voltou e pedi um chopp. Ele me disse q era necessário ir na torneira e pegar o chopp. Eu já tava super bolado e percebi que se eu quisesse um drink ou outra bebida qualquer era necessário ir em outro stand... Quase perguntei se estavam precisando de garçons na casa, porque fácil assim até eu quero... Quando vou em um restaurante, bar, pub ou qualquer outro estabelecimento que seja, eu quero praticidade e conforto e não estar me levantando toda hora pra pedir e pegar as coisas.... Ai fui na cozinha, pois minha esposa queria experimentar a fraldinha red deles e a linguiça de cordeiro e qual a nova surpresa??? Não tinha fraldinha e nem linguiça no dia! aheusheuhuea... E percebi outro fato, no horário que fui, não havia porção individual de carne e só pra dupla, ou seja te obrigam a comer o que eles querem... Se a pessoa quiser experimentar dois cortes por exemplo, terá que pagar dobrado... E outra eu não quero comer arroz, quero comer o que eu quiser... E outra excelente logística do lugar é o banheiro que fica há uns 400 quilômetros de distância do bar. É escuro e longe. Eu havia carregado $250 n cartão e infelizmente tive que pedir o estorno e ir embora... A moça pediu 5 dias pra fazer o pix, ao menos me pagaram... As únicas coisas boas é que tem várias opções de chopp e o garçom que nos atendeu era ao menos educado... Sai de lá totalmente frustrado...
-                </div>
+                <details>
+                    <summary>Espia a resenha completa</summary>
+                    <div class="resenha-texto">
+                        Eu sinceramente não entendi a proposta do local... Ao chegarmos, antes mesmo de sentar na mesa já fomos orientados pelo garçom que era necessário ir ao caixa e fazer um cartão. Já fiquei bolado, mas tudo bem, fui lá. Após uma fila interminável, a moça do caixa pediu meus dados e fiz o cartão e pela minha total surpresa ela me disse era necessário pagar antes. Sim! Não é brincadeira minha, vc tem que fazer a conta certinha do que vc quer pedir e já pagar de antemão. Achei graça, mas como minha esposa estava com fome, acabamos por colocar uma "carga" no cartão. Quando eu fui sentar, o garçom voltou e pedi um chopp. Ele me disse q era necessário ir na torneira e pegar o chopp. Eu já tava super bolado e percebi que se eu quisesse um drink ou outra bebida qualquer era necessário ir em outro stand... Quase perguntei se estavam precisando de garçons na casa, porque fácil assim até eu quero... Quando vou em um restaurante, bar, pub ou qualquer outro estabelecimento que seja, eu quero praticidade e conforto e não estar me levantando toda hora pra pedir e pegar as coisas.... Ai fui na cozinha, pois minha esposa queria experimentar a fraldinha red deles e a linguiça de cordeiro e qual a nova surpresa??? Não tinha fraldinha e nem linguiça no dia! aheusheuhuea... E percebi outro fato, no horário que fui, não havia porção individual de carne e só pra dupla, ou seja te obrigam a comer o que eles querem... Se a pessoa quiser experimentar dois cortes por exemplo, terá que pagar dobrado... E outra eu não quero comer arroz, quero comer o que eu quiser... E outra excelente logística do lugar é o banheiro que fica há uns 400 quilômetros de distância do bar. É escuro e longe. Eu havia carregado $250 n cartão e infelizmente tive que pedir o estorno e ir embora... A moça pediu 5 dias pra fazer o pix, ao menos me pagaram... As únicas coisas boas é que tem várias opções de chopp e o garçom que nos atendeu era ao menos educado... Sai de lá totalmente frustrado...
+                    </div>
+                </details>
 
                 <div class="nota-experiencia"><p>Avaliação do Luquinhas: Muita função para pouca praticidade. Banheiro a kms de distância.</p></div>
             </article>
@@ -515,10 +557,12 @@
                 <h2>La Notte Bar & Cozinha</h2>
                 <div class="post-meta">Av. Arno Carlos Gracher, 363 - Centro 1 | 3 anos atrás</div>
                 
-                <button class="btn-espia" onclick="toggleResenha(this)">Espia a resenha completa</button>
-                <div class="resenha-completa">
-                    O lugar é sensacional! Excelente atendimento, desde a entrada até o pagamento... Ambiente com decoração primorosa, drinks magistrais e comida feita com qualidade total! Tudo perfeito. As únicas observações são em relação ao fato de restaurante ser em piso superior, não haver elevador ou rampa para cadeirantes e deficientes e os preços são um pouco elevados. Talvez que que seja pobre mesmo e esteja indo em um lugar que não seja pro meu bico, hehe... Mas nada que estrague a experiência! Recomendo!
-                </div>
+                <details>
+                    <summary>Espia a resenha completa</summary>
+                    <div class="resenha-texto">
+                        O lugar é sensacional! Excelente atendimento, desde a entrada até o pagamento... Ambiente com decoração primorosa, drinks magistrais e comida feita com qualidade total! Tudo perfeito. As únicas observações são em relação ao fato de restaurante ser em piso superior, não haver elevador ou rampa para cadeirantes e deficientes e os preços são um pouco elevados. Talvez que que seja pobre mesmo e esteja indo em um lugar que não seja pro meu bico, hehe... Mas nada que estrague a experiência! Recomendo!
+                    </div>
+                </details>
 
                 <div class="nota-experiencia"><p>Avaliação do Luquinhas: Uma experiência de gala, porém peca em acessibilidade.</p></div>
             </article>
@@ -531,10 +575,12 @@
                 <h2>Jost Burger</h2>
                 <div class="post-meta">R. João Bauer, 55 - Centro 1 | 3 anos atrás</div>
                 
-                <button class="btn-espia" onclick="toggleResenha(this)">Espia a resenha completa</button>
-                <div class="resenha-completa">
-                    Melhor hamburgueria da cidade! Batata frita parece a do Mac, cebola frita tbm é top! Caipirinha show, chopp geladoooo e qualquer hambúrguer é muito bom, pode pedir sem medo! Atendimento ótimo e o lugar é bem aconchegante, recomendo d!+
-                </div>
+                <details>
+                    <summary>Espia a resenha completa</summary>
+                    <div class="resenha-texto">
+                        Melhor hamburgueria da cidade! Batata frita parece a do Mac, cebola frita tbm é top! Caipirinha show, chopp geladoooo e qualquer hambúrguer é muito bom, pode pedir sem medo! Atendimento ótimo e o lugar é bem aconchegante, recomendo d!+
+                    </div>
+                </details>
 
                 <div class="nota-experiencia"><p>Avaliação do Luquinhas: A melhor de Brusque. Pode ir de olho fechado!</p></div>
             </article>
@@ -547,10 +593,12 @@
                 <h2>Tsurus</h2>
                 <div class="post-meta">R. França, 8 - Santa Rita | 3 anos atrás</div>
                 
-                <button class="btn-espia" onclick="toggleResenha(this)">Espia a resenha completa</button>
-                <div class="resenha-completa">
-                    Não é isso tudo que falam... É caro só pra selecionar a galera mesmo... Peças limitadas, ambiente pequeno, estacionamento inexistente e bebidas de preço exorbitante... Só pra nata mesmo...
-                </div>
+                <details>
+                    <summary>Espia a resenha completa</summary>
+                    <div class="resenha-texto">
+                        Não é isso tudo que falam... É caro só pra selecionar a galera mesmo... Peças limitadas, ambiente pequeno, estacionamento inexistente e bebidas de preço exorbitante... Só pra nata mesmo...
+                    </div>
+                </details>
 
                 <div class="nota-experiencia"><p>Avaliação do Luquinhas: Preço de grife para pouca entrega. Só para a "nata".</p></div>
             </article>
@@ -563,10 +611,12 @@
                 <h2>Nippon</h2>
                 <div class="post-meta">R. Daniel Imhof, 550 - São Luiz | 3 anos atrás</div>
                 
-                <button class="btn-espia" onclick="toggleResenha(this)">Espia a resenha completa</button>
-                <div class="resenha-completa">
-                    Os pratos são até gostosos, mas o atendimento deve ser o pior da cidade... Demora umas 4 horas pra chegar os pedidos e eles nunca vem do jeito que vc pediu, sempre pela metade... Você o refaz e vem errado novamente, isso até para a bebida... Não sei o problema deles com a música também, que sempre está extremamente alta, eu estava do lado da minha namorada e mesmo assim eu tinha que praticamente berrar para conversar com ela... Quer uma sugestão? Vai no kyuutai!
-                </div>
+                <details>
+                    <summary>Espia a resenha completa</summary>
+                    <div class="resenha-texto">
+                        Os pratos são até gostosos, mas o atendimento deve ser o pior da cidade... Demora umas 4 horas pra chegar os pedidos e eles nunca vem do jeito que vc pediu, sempre pela metade... Você o refaz e vem errado novamente, isso até para a bebida... Não sei o problema deles com a música também, que sempre está extremamente alta, eu estava do lado da minha namorada e mesmo assim eu tinha que praticamente berrar para conversar com ela... Quer uma sugestão? Vai no kyuutai!
+                    </div>
+                </details>
 
                 <div class="nota-experiencia"><p>Avaliação do Luquinhas: Desorganização e som berrante. Fuja para o concorrente.</p></div>
             </article>
@@ -579,10 +629,12 @@
                 <h2>MATRYOSHKA Sabores do Leste Europeu</h2>
                 <div class="post-meta">R. Mal. Guilherme, 119 - Florianópolis | 3 anos atrás</div>
                 
-                <button class="btn-espia" onclick="toggleResenha(this)">Espia a resenha completa</button>
-                <div class="resenha-completa">
-                    Surpreendente experiência no centro de Florianópolis... Tudo perfeito, desde o atendimento do Ed, até os pratos e bebidas... Fui com minha namorada e pedimos uma espécie de capelete recheado de cogumelos, klotetas com purê e cogumelos que estavam divinos! De bebida, pedimos um chá não menos saboroso, agora a chave de ouro é a sobremesa Praça Vermelha que foi a melhor que já comemos na vida! A única ressalva é que o local é minúsculo, então chegue cedo! Recomendo!
-                </div>
+                <details>
+                    <summary>Espia a resenha completa</summary>
+                    <div class="resenha-texto">
+                        Surpreendente experiência no centro de Florianópolis... Tudo perfeito, desde o atendimento do Ed, até os pratos e bebidas... Fui com minha namorada e pedimos uma espécie de capelete recheado de cogumelos, klotetas com purê e cogumelos que estavam divinos! De bebida, pedimos um chá não menos saboroso, agora a chave de ouro é a sobremesa Praça Vermelha que foi a melhor que já comemos na vida! A única ressalva é que o local é minúsculo, então chegue cedo! Recomendo!
+                    </div>
+                </details>
 
                 <div class="nota-experiencia"><p>Avaliação do Luquinhas: A sobremesa Praça Vermelha mudou vidas. Lugar minúsculo, mas incrível.</p></div>
             </article>
@@ -595,10 +647,12 @@
                 <h2>No Class</h2>
                 <div class="post-meta">R. Victor Meirelles, 184 - Florianópolis | 3 anos atrás</div>
                 
-                <button class="btn-espia" onclick="toggleResenha(this)">Espia a resenha completa</button>
-                <div class="resenha-completa">
-                    Fui muito bem atendimento, desde a hostless, as atendentes até o caixa... Os drinks que pedimos estavam fantásticos! O local tem um toque bem intimista e hi-tech, muito bem decorado mesmo. Minha única ressalva são para as porções, que não são o forte da casa, os fortes são mesmo os drinks... As porções estavam ok, mas são bem pequenas, só pra dar uma forrada no estômago mesmo, além de caras... Fora isso, recomendo muito ir no local!
-                </div>
+                <details>
+                    <summary>Espia a resenha completa</summary>
+                    <div class="resenha-texto">
+                        Fui muito bem atendimento, desde a hostless, as atendentes até o caixa... Os drinks que pedimos estavam fantásticos! O local tem um toque bem intimista e hi-tech, muito bem decorado mesmo. Minha única ressalva são para as porções, que não são o forte da casa, os fortes são mesmo os drinks... As porções estavam ok, mas são bem pequenas, só pra dar uma forrada no estômago mesmo, além de caras... Fora isso, recomenda muito ir no local!
+                    </div>
+                </details>
 
                 <div class="nota-experiencia"><p>Avaliação do Luquinhas: Ótimos drinks e decoração futurista, mas as porções são minúsculas.</p></div>
             </article>
@@ -612,20 +666,6 @@
     </footer>
 
     <script>
-        function toggleResenha(botao) {
-            const divResenha = botao.nextElementSibling;
-            
-            if (divResenha.style.maxHeight && divResenha.style.maxHeight !== '0px') {
-                // Se estiver aberto, fecha
-                divResenha.style.maxHeight = '0px';
-                botao.textContent = 'Espia a resenha completa';
-            } else {
-                // Se estiver fechado, calcula a altura real do texto
-                divResenha.style.maxHeight = divResenha.scrollHeight + "px";
-                botao.textContent = 'Esconder a resenha';
-            }
-        }
-
         function filtrar(tipo, botao) {
             document.querySelectorAll('.btn-filtro').forEach(b => b.classList.remove('ativo'));
             botao.classList.add('ativo');
@@ -646,12 +686,6 @@
                 } else {
                     post.style.display = 'none';
                 }
-
-                // Reseta a expansão ao filtrar para não bugar o visual
-                const botaoEspia = post.querySelector('.btn-espia');
-                const divResenha = post.querySelector('.resenha-completa');
-                if (divResenha) divResenha.style.maxHeight = '0px';
-                if (botaoEspia) botaoEspia.textContent = 'Espia a resenha completa';
             });
         }
 
@@ -672,12 +706,6 @@
             posts.forEach(post => {
                 post.style.display = 'block'; 
                 container.appendChild(post);
-                
-                // Reseta a expansão ao ordenar
-                const botaoEspia = post.querySelector('.btn-espia');
-                const divResenha = post.querySelector('.resenha-completa');
-                if (divResenha) divResenha.style.maxHeight = '0px';
-                if (botaoEspia) botaoEspia.textContent = 'Espia a resenha completa';
             });
         }
     </script>
