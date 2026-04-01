@@ -29,6 +29,432 @@
         header {
             background-color: var(--cor-card);
             text-align: center;
+            padding: 5rem 1rem;
+            border-bottom: 5px solid var(--cor-principal);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            position: relative;
+            /* Foto real e clean das montanhas de Minas Gerais */
+            background-image: url('https://images.unsplash.com/photo-1620127553531-dfbc9342544c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Camada para deixar a imagem do topo bem clarinha e o texto legível */
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(255, 255, 255, 0.85);
+            z-index: 1;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3.5rem;
+            color: var(--cor-principal);
+            letter-spacing: -1px;
+            font-weight: 800;
+            position: relative;
+            z-index: 2;
+            text-shadow: 2px 2px 0px rgba(74, 49, 33, 0.1);
+        }
+
+        header p {
+            margin: 0.8rem 0 0;
+            font-size: 1.4rem;
+            color: #444;
+            font-style: italic;
+            position: relative;
+            z-index: 2;
+        }
+
+        .menu-filtros {
+            background-color: #fff;
+            padding: 1.2rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid var(--cor-secundaria);
+        }
+
+        .btn-filtro {
+            background-color: transparent;
+            border: 2px solid var(--cor-secundaria);
+            border-radius: 30px;
+            padding: 0.6rem 1.3rem;
+            margin: 0.3rem;
+            cursor: pointer;
+            font-weight: bold;
+            color: var(--cor-principal);
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .btn-filtro:hover, .btn-filtro.ativo {
+            background-color: var(--cor-principal);
+            color: white;
+            border-color: var(--cor-principal);
+            transform: scale(1.03);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .sobre-mim {
+            background: var(--cor-card);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            margin-bottom: 3rem;
+            border-left: 8px solid var(--cor-sucesso);
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        /* Imagem real de uma Janela Mineira com Flores */
+        .sobre-mim img {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .sobre-mim h3 {
+            color: var(--cor-principal);
+            margin-top: 0;
+            font-size: 2rem;
+            font-weight: 800;
+        }
+
+        .sobre-mim p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .post {
+            background: var(--cor-card);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            margin-bottom: 3rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: block;
+        }
+
+        .post:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+        }
+
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.2rem;
+        }
+
+        .post-categoria {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.4rem 1.1rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .cat-sucesso { background-color: var(--cor-sucesso); }
+        .cat-alerta { background-color: var(--cor-alerta); color: var(--cor-texto); }
+        .cat-perigo { background-color: var(--cor-perigo); }
+
+        .nota-topo {
+            font-size: 1.8rem;
+            color: var(--cor-principal);
+            font-weight: 800;
+        }
+
+        .post h2 {
+            margin: 0.4rem 0;
+            color: var(--cor-principal);
+            font-size: 2rem;
+            letter-spacing: -1px;
+            font-weight: 700;
+        }
+
+        .post-meta {
+            font-size: 0.95rem;
+            color: #888;
+            margin-bottom: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        details {
+            margin-bottom: 1.5rem;
+            width: 100%;
+        }
+
+        summary {
+            background-color: var(--cor-secundaria);
+            color: var(--cor-texto);
+            padding: 0.7rem 1.4rem;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+            list-style: none;
+            font-size: 1rem;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary:hover {
+            background-color: var(--cor-hover);
+        }
+
+        .resenha-texto {
+            margin-top: 1.3rem;
+            line-height: 1.7;
+            font-size: 1.1rem;
+            padding: 1.3rem;
+            background-color: #fffefb;
+            border-radius: 10px;
+            border: 1px solid #f2e6cf;
+            white-space: normal;
+            word-wrap: break-word;
+            overflow: visible;
+        }
+
+        .nota-experiencia {
+            background-color: var(--cor-fundo);
+            padding: 1.3rem;
+            border-radius: 15px;
+            border: 3px solid var(--cor-secundaria);
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+        }
+
+        .nota-experiencia p {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin: 0;
+            color: var(--cor-principal);
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 1rem;
+            border-top: 2px solid var(--cor-secundaria);
+            color: #888;
+            font-size: 1rem;
+            background-color: #fff;
+        }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 2.8rem; }
+            header p { font-size: 1.2rem; }
+            .post h2 { font-size: 1.8rem; }
+            .post-header { flex-direction: column; align-items: flex-start; gap: 0.6rem; }
+            .nota-topo { font-size: 1.6rem; }
+            .btn-filtro { font-size: 0.95rem; padding: 0.5rem 1.1rem; }
+            .sobre-mim { flex-direction: column; text-align: center; }
+            .sobre-mim img { width: 100px; height: 100px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Comendo com o Luquinhas, uai!</h1>
+        <p>A verdade nua, crua e bem temperada sobre o comer por aí.</p>
+    </header>
+
+    <div class="menu-filtros">
+        <span style="font-weight: bold; margin-right: 0.5rem; color: var(--cor-principal); font-size: 1rem;">Uai, filtrar por:</span>
+        <button class="btn-filtro ativo" onclick="filtrar('todos', this)">Todos</button>
+        <button class="btn-filtro" onclick="filtrar('alta', this)">Nossinhora! (9+)</button>
+        <button class="btn-filtro" onclick="filtrar('media', this)">Bão Demais (7-8)</button>
+        <button class="btn-filtro" onclick="filtrar('baixa', this)">Furada, sô! (<7)</button>
+        <button class="btn-filtro" onclick="ordenarRecentes(this)">Mais Recentes</button>
+    </div>
+
+    <div class="container">
+        
+        <section class="sobre-mim">
+            <img src="https://images.unsplash.com/photo-1598901865241-76bc4696df0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Janela Mineira Tradicional">
+            <div>
+                <h3>Quem avisa, amigo é, uai!</h3>
+                <p>Seja bem-vindo. Eu sou o Luquinhas, contribuidor do Google Maps e apaixonado por comida. Cansei de gourmetização e resenha comprada. Aqui você vai encontrar papo reto sobre onde vale a pena gastar o seu dinheiro (e o seu estômago).</p>
+            </div>
+        </section>
+
+        <div id="lista-posts">
+
+            <article class="post" data-nota="8.5" data-data="2026-03-25">
+                <div class="post-header">
+                    <span class="post-categoria cat-alerta">🧀 Dá pra comer (7-8)</span>
+                    <span class="nota-topo">8.5 / 10</span>
+                </div>
+                <h2>Ital'in House - Brusque - Centro</h2>
+                <div class="post-meta">📍 R. Ver. Guilherme Niebuhr, 2 | 📅 1 semana atrás</div>
+                
+                <details>
+                    <summary>Dar uma espiada na resenha completa</summary>
+                    <div class="resenha-texto">
+                        Fui surpreendido positivamente! Pedi um risoto e um talharim e ambas as porções são muito bem servidas, generosas, preço justo e deliciosas! Chegou muito rápido na minha casa e bem quentinho ainda! Pedi um tiramisu de sobremesa e não curti …
+                    </div>
+                </details>
+
+                <div class="nota-experiencia">
+                    <span>💡</span>
+                    <p>Avaliação do Luquinhas: Risoto e talharim valem d+, mas o doce deixou a desejar.</p>
+                </div>
+            </article>
+
+            <article class="post" data-nota="10.0" data-data="2026-03-01">
+                <div class="post-header">
+                    <span class="post-categoria cat-sucesso">🍲 Lamber os beiços (9+)</span>
+                    <span class="nota-topo">10 / 10</span>
+                </div>
+                <h2>PIZZARIA LÁ BELLA</h2>
+                <div class="post-meta">📍 R. Florianópolis, 795 | 📅 1 mês atrás</div>
+                
+                <details>
+                    <summary>Dar uma espiada na resenha completa</summary>
+                    <div class="resenha-texto">
+                        Confesso que fiz o pedido sem muito otimismo, mas fui surpreendido de maneira muito positiva. O atimento é ótimo, desde o primeiro contato até a retirada, a moça que me atendeu é muito cordial e simpática. O pedido ficou pronto extremamente rápido e a pizza é maravilhosa! A borda de requeijão é extremamente recheada, tanto quanto pizza in si. A de costela é sem dúvidas a melhor da cidade e a portuguesa não fica para trás! Com certeza irei pedir + vezes!<br><br>
+                        Comida: 5 | Serviço: 5 | Ambiente: 5
+                    </div>
+                </details>
+
+                <div class="nota-experiencia">
+                    <span>💡</span>
+                    <p>Avaliação do Luquinhas: Costela campeã! Atendimento nota 1000.</p>
+                </div>
+            </article>
+
+            <article class="post" data-nota="8.0" data-data="2026-02-01">
+                <div class="post-header">
+                    <span class="post-categoria cat-alerta">🧀 Dá pra comer (7-8)</span>
+                    <span class="nota-topo">8.0 / 10</span>
+                </div>
+                <h2>Boutique do Pão de Ló Brusque</h2>
+                <div class="post-meta">📍 R. Paes Leme, 122 | 📅 2 meses atrás</div>
+                
+                <details>
+                    <summary>Dar uma espiada na resenha completa</summary>
+                    <div class="resenha-texto">
+                        Eu achei o local fantástico! A decoração foi muito bem feita. Tudo lindo, sofistisado e arrojado. O atendimento é quase majoritário de meninas e todas muito bem educadas e cordiais. Fui muito atendido desde a entrada até a saída. Tem estacionamento na porta e a variedade de produtos é vasta. Tem pra todo gosto, bolos, cheesecakes, capuccinos, cafés gelados, chás, sanduíches e por ai vai... Achei o preço dos bolos meio "salgados" pelos tamanhos, mas as vezes deva ser que meu bolso não acompanhe o padrão do local, hehe... De toda forma, recomenda d+ a visita!
+                    </div>
+                </details>
+
+                <div class="nota-experiencia">
+                    <span>💡</span>
+                    <p>Avaliação do Luquinhas: Ambiente lindo e atendimento ótimo, mas prepara o bolso para os bolos.</p>
+                </div>
+            </article>
+
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Comendo com o Luquinhas. Feito com fome e muita sinceridade, uai.</p>
+    </footer>
+
+    <script>
+        function filtrar(tipo, botao) {
+            document.querySelectorAll('.btn-filtro').forEach(b => b.classList.remove('ativo'));
+            botao.classList.add('ativo');
+
+            const posts = document.querySelectorAll('.post');
+            
+            posts.forEach(post => {
+                const nota = parseFloat(post.getAttribute('data-nota'));
+                
+                if (tipo === 'todos') {
+                    post.style.display = 'block';
+                } else if (tipo === 'alta' && nota >= 9.0) {
+                    post.style.display = 'block';
+                } else if (tipo === 'media' && nota >= 7.0 && nota < 9.0) {
+                    post.style.display = 'block';
+                } else if (tipo === 'baixa' && nota < 7.0) {
+                    post.style.display = 'block';
+                } else {
+                    post.style.display = 'none';
+                }
+            });
+        }
+
+        function ordenarRecentes(botao) {
+            document.querySelectorAll('.btn-filtro').forEach(b => b.classList.remove('ativo'));
+            botao.classList.add('ativo');
+
+            const container = document.getElementById('lista-posts');
+            const posts = Array.from(container.getElementsByClassName('post'));
+
+            posts.sort((a, b) => {
+                const dataA = new Date(a.getAttribute('data-data'));
+                const dataB = new Date(b.getAttribute('data-data'));
+                return dataB - dataA; 
+            });
+
+            container.innerHTML = '';
+            posts.forEach(post => {
+                post.style.display = 'block'; 
+                container.appendChild(post);
+            });
+        }
+    </script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comendo com o Luquinhas - Críticas Sinceras, uai!</title>
+    <style>
+        :root {
+            --cor-principal: #d35400; /* Cobre/Abóbora */
+            --cor-secundaria: #f3e5ab; /* Milho/Manteiga */
+            --cor-texto: #4a3121; /* Café escuro */
+            --cor-fundo: #faf8f5; /* Off-white linho */
+            --cor-card: #ffffff;
+            --cor-hover: #e0d0b8; 
+            --cor-sucesso: #27ae60; /* Verde horta */
+            --cor-alerta: #f1c40f; /* Amarelo queijo */
+            --cor-perigo: #c0392b; /* Vermelho pimenta */
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--cor-fundo);
+            background-image: url('https://www.transparenttextures.com/patterns/linen.png');
+            color: var(--cor-texto);
+        }
+
+        header {
+            background-color: var(--cor-card);
+            text-align: center;
             padding: 4rem 1rem 3rem 1rem;
             border-bottom: 5px solid var(--cor-principal);
             box-shadow: 0 2px 15px rgba(0,0,0,0.05);
